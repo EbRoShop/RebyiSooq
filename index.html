@@ -881,12 +881,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
      Navigation buttons
      ------------------------- */
   accountBtn.addEventListener("click", ()=> { window.location.href = "admin.html"; });
-  cartBtn.addEventListener("click", ()=> { window.location.href = "cart.html"; });
+  cartBtn.addEventListener("click", ()=> { window.location.href = "Cart.html"; });
 
   /* Expose updateBadge so other pages can call window.updateBadge() after adding */
   window.updateCartBadge = updateBadge;
 
 })();
+
+
 
 
 /*the slide*/
@@ -927,7 +929,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
             clearInterval(autoInterval); 
             autoInterval = setInterval(() => {
                 moveToSlide(currentIndex + 1);
-            }, 5000); // Cycles every 5 seconds
+            }, 3000); // Cycles every 5 seconds
         }
 
         // --- Event Listeners for Manual Control ---
