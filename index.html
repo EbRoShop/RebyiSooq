@@ -308,6 +308,18 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
             }
         }
 
+
+        /*shop by catagory*/
+            .category-link:hover {
+            color: #7cb342; /* Highlight color on hover */
+        }
+
+     
+        /* Hide the arrow on the last item */
+        .category-item:last-child .arrow {
+            display: none;
+        }
+
 </style>
 </head>
 <body>
@@ -595,7 +607,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
             flex-wrap: nowrap; /* CRITICAL: Ensures all items stay on one row */
             justify-content: space-around; /* Distribute space evenly */
             padding: 20px 10px;
-            gap: 10px; 
+            gap:10px; 
             overflow-x: auto; /* Adds horizontal scrolling if they don't fit */
             -webkit-overflow-scrolling: touch; " class="category-links-container">
         
@@ -714,6 +726,201 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     </div>
 
 
+
+
+ <div style="        font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;">
+    <div style=" width: 100%;
+            max-width: 800px; /* Limits the max width of the card */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Important to keep the shadow contained */" class="category-box-container">
+        <div style="   /* This div holds the green tab and the grey/white line */
+            position: relative;
+            padding-bottom: 5px; /* Space for the thin divider line */
+            border-bottom: 1px solid #e0e0e0;" class="category-header-wrapper">
+            <div style=" display: inline-block;
+            background-color: #7cb342; /* Soft Green color from the photo */
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 10px 20px 10px 20px; /* Padding inside the green box */
+            border-radius: 5px 5px 0 0; /* Rounded top corners */
+            position: relative;
+            z-index: 2; /* Ensures the green box sits above the line */" class="category-header">
+                Shop by categories
+            </div>
+        </div>
+
+        <div style="  /* Enables horizontal scrolling */
+            overflow-x: auto;
+            white-space: nowrap; /* Prevents categories from wrapping to a new line */
+            padding: 20px 0; /* Vertical padding above and below the list */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */" class="category-list-wrapper">
+            <div style="   display: flex;
+            align-items: center;
+            padding: 0 10px; /* Horizontal padding for the content */" class="category-list">
+                
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Basic Food</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Breakfast & Milk Products</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Fresh Food</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Chilled Frozen Desserts</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+                
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Drinks</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Desserts, Dates, Dry Fruits</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Chocolates, Snacks & Biscuits</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+                
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Baby Products</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+
+                <div style="            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Space after the link and before the arrow */
+            flex-shrink: 0; /* Prevents the items from shrinking when scrolling */" class="category-item">
+                    <a href="#" style="  text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: 500;
+            line-height: 1.2; /* Ensures multi-line text (like 'Chilled...') is legible */
+            text-align: center; /* Center multi-line text */
+            transition: color 0.2s;" class="category-link">Household Items</a>
+                    <span style=" color: #2196f3; /* Bright Blue color for the arrow */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 15px; /* Space between the category word and the arrow */" class="arrow">&gt;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
