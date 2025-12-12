@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Samba Vegan OG — Product Page</title>
+
+<style>
+  :root{
+    --bg:#faf9f7;
+    --text:#111;
+    --muted:#666;
+    --accent-bg:#000;
+    --pill-border: #bfbfbf;
+    --pill-radius: 999px;
+    --rounded-card: 14px;
+    font-size:16px;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .container{
+    max-width:900px;
+    margin:0 auto;
+    padding:18px;
+  }
+
+  /* --- Carousel / product image --- */
+  .carousel{
+    position:relative;
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .image-card{
+    background:#fff;
+    border-radius:14px;
+    padding:18px;
+    flex:1;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+    text-align:center;
+  }
+  .image-card img{
+    width:300px;
+    height: 300px;
+    max-height:460px;
+    object-fit:contain;
+    border-radius:10px;
+  }
+  .carousel-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:12px;
+    color:var(--muted);
+    user-select:none;
+  }
+  .ctrl-btn{
+    background:transparent;
+    border:0;
+    font-size:22px;
+    padding:8px 14px;
+    cursor:pointer;
+  }
+
+  /* --- Title & price --- */
+  h1{
+    font-size:44px;
+    margin:24px 0 10px 0;
+    line-height:1.02;
+    font-weight:600;
+    letter-spacing:0.4px;
+  }
+  .price{
+    font-family: "Courier New", monospace;
+    font-size:20px;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+
+  /* --- Size Chart link --- */
+  .size-chart{
+    display:inline-block;
+    text-decoration:underline;
+    margin:10px 0 20px 0;
+    font-family: "Courier New", monospace;
+  }
+
+  /* --- Pills: sizes and colors --- */
+  .label{
+    color:var(--muted);
+    margin:12px 0 8px 0;
+    font-weight:500;
+  }
+
+  .pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .pill{
+    padding:14px 22px;
+    border-radius:var(--pill-radius);
+    border:2px solid var(--pill-border);
+    background:white;
+    cursor:pointer;
+    font-family: "Courier New", monospace;
+    letter-spacing:1px;
+    user-select:none;
+  }
+  .pill.small{
+    padding:14px 22px;
+    min-width:72px;
+    text-align:center;
+  }
+  .pill.selected{
+    background:var(--accent-bg);
+    color:#fff;
+    border-color:var(--accent-bg);
+  }
+
+  /* --- Quantity box --- */
+  .qty-wrap{
+    margin-top:20px;
+  }
+  .qty-box{
+    display:inline-flex;
+    align-items:center;
+    border-radius:10px;
+    border:2px solid #111;
+    padding:12px 18px;
+    gap:18px;
+    min-width:180px;
+    font-family: "Courier New", monospace;
+  }
+  .qty-btn{
+    border:0;
+    background:transparent;
+    font-size:20px;
+    cursor:pointer;
+    width:30px;
+    height:30px;
+  }
+  .qty-value{min-width:26px; text-align:center; font-size:18px}
+
+  /* --- Add to cart and order now --- */
+  .actions{
+    margin-top:28px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .add-cart{
+    flex:1 1 100%;
+    background:transparent;
+    border:3px solid #111;
+    padding:20px 26px;
+    border-radius:999px;
+    font-family: "Courier New", monospace;
+    font-size:20px;
+    cursor:pointer;
+  }
+  .order-now{
+    width:140px;
+    padding:16px;
+    border-radius:999px;
+    background:#000;
+    color:#fff;
+    border:0;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  /* --- Small UI --- */
+  .muted{color:var(--muted)}
+  .spacer{height:18px}
+
+  /* --- FAQ accordion --- */
+  .faq .item{background:white;border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid #eee;}
+  .faq .question{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:600}
+  .faq .answer{margin-top:8px;display:none;color:var(--muted)}
+  /* --- Related products grid --- */
+  .related{
+    margin-top:26px;
+  }
+  .related-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  .rel-card{
+    background:#fff;
+    border-radius:14px;
+    padding:10px;
+    text-align:left;
+  }
+  .rel-card img{width:100%;height:150px;object-fit:cover;border-radius:12px}
+  .rel-title{font-size:16px;margin-top:8px}
+  .rel-price{font-family: "Courier New", monospace;color:var(--muted);margin-top:6px}
+
+  /* --- Responsive --- */
+  @media (min-width:900px){
+    .container{padding:28px}
+    .carousel{gap:26px}
+    .image-card img{max-height:640px}
+    .related-grid{grid-template-columns:repeat(4,1fr)}
+    h1{font-size:60px}
+  }
+
+  /* small toast */
+  #toast{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:black;color:white;padding:10px 14px;border-radius:8px;display:none;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="image-card" id="imageCard">
+      <img id="mainImage" src="/mnt/data/Screenshot_20251202_103720_Chrome.jpg"  alt="Product image"/>
+    </div>
+  </div>
+
+  <div class="carousel-controls" aria-hidden="false">
+    <button class="ctrl-btn" id="prevBtn" aria-label="previous image">↪</button>
+    <div id="imageCounter">1 / 6</div>
+    <button class="ctrl-btn" id="nextBtn" aria-label="next image">↩</button>
+  </div>
+
+  <!-- Title & price -->
+  <h1 id="productName">Samba Vegan OG Unisex Low</h1>
+  <div class="price" id="productPrice">Br8,199.00 ETB</div>
+
+  <!-- Size chart link -->
+  <a href="sizeChart.html" class="size-chart">📏 Size Chart</a>
+
+  <!-- Sizes -->
+  <div class="label">size</div>
+  <div class="pills" id="sizePills">
+    <!-- generated by JS -->
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- Colors -->
+  <div class="label">Color</div>
+  <div class="pills" id="colorPills">
+    <!-- generated by JS -->
+  </div>
+
+  <!-- Quantity -->
+  <div class="label">Quantity</div>
+  <div class="qty-wrap">
+    <div class="qty-box" role="group" aria-label="Quantity">
+      <button class="qty-btn" id="qtyMinus" aria-label="decrease">−</button>
+      <div class="qty-value" id="qtyValue">1</div>
+      <button class="qty-btn" id="qtyPlus" aria-label="increase">+</button>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <button class="add-cart" id="addToCartBtn">Add to cart</button>
+    <button style="background-color: #17593a;" class="add-cart" id="orderNowBtn"><b>Order Now</b></button>
+  </div>
+
+  <!-- Product info -->
+  <div class="spacer"></div>
+  <div class="label">Product Info</div>
+  <p class="muted">Classic meets conscious with these vegan Samba OG athleisure shoes. Designed for both men and women, they offer low-top comfort and timeless style — perfect for training or everyday wear.</p>
+
+  <!-- FAQ -->
+  <div class="spacer"></div>
+  <div class="label">Frequently Asked Questions</div>
+  <div class="faq" id="faq">
+    <div class="item">
+      <div class="question">What payment methods are accepted? <span>▾</span></div>
+      <div class="answer">We accept card payments and mobile money. Cash on delivery available in selected areas.</div>
+    </div>
+    <div class="item">
+      <div class="question">How long is delivery? <span>▾</span></div>
+      <div class="answer">Delivery typically takes 2–5 business days depending on your location.</div>
+    </div>
+    <div class="item">
+      <div class="question">Can I return the product? <span>▾</span></div>
+      <div class="answer">Yes — returns are accepted within 7 days for unworn items. See our returns page for details.</div>
+    </div>
+  </div>
+
+  <!-- Related products -->
+  <div class="spacer"></div>
+  <div class="label">Related products</div>
+  <div class="related">
+    <div class="related-grid" id="relatedGrid">
+      <!-- JS will render a few sample related cards -->
+    </div>
+  </div>
+
+</div>
+
+<div id="toast">Added to cart</div>
+
+<script>
+/* -------------------------
+   Data (images, sizes, colors)
+   -------------------------*/
+   /*
+ Use the real images you placed in the same folder as the page.
+ I used the filenames that were uploaded to the container.
+ Replace or add images in the array below if you add more.
+*/
+/* -------------------------
+   Data (images, sizes, colors)
+   -------------------------*/
+
+// Use your 3 real images here — same folder as this HTML file
+const carouselImages = [
+  'Adidas Samba.jpg' ,   // default image (Black/White)
+  'Bag 2.jpg',          // second color image
+  'Hijab 1.jpg'         // third color image
+];
+
+// Product info
+const product = {
+  id: 'samba-vegan-og',
+  name: 'Samba Vegan OG Unisex Low',
+  price: 'Br8,199.00 ETB',
+
+  sizes: [36,37,38,39,40,41,42,43,44,45],
+
+  // Colors mapped to your images
+  colors: [
+    {
+      key: 'black-white',
+      label: 'Black & White',
+      images: ['Adidas Samba.jpg']  // uses Adidas photo
+    },
+    {
+      key: 'bag-color',
+      label: 'Bag Style',
+      images: ['Bag 2.jpg']         // uses Bag 2.jpg
+    },
+    {
+      key: 'hijab-color',
+      label: 'Hijab Style',
+      images: ['Hijab 1.jpg']       // uses Hijab 1.jpg
+    }
+  ]
+};
+
+
+/* -------------------------
+   Render sizes & colors
+   -------------------------*/
+const sizePills = document.getElementById('sizePills');
+const colorPills = document.getElementById('colorPills');
+const qtyValue = document.getElementById('qtyValue');
+const mainImage = document.getElementById('mainImage');
+const imageCounter = document.getElementById('imageCounter');
+const productName = document.getElementById('productName');
+const productPrice = document.getElementById('productPrice');
+
+productName.textContent = product.name;
+productPrice.textContent = product.price;
+
+// default selection
+let selectedSize = product.sizes[0];
+let selectedColor = product.colors[0].key;
+let selectedQty = 1;
+
+// carousel state
+let currentImageList = product.colors[0].images.slice(); // images for current color
+let currentIndex = 0;
+
+function renderSizes(){
+  sizePills.innerHTML = '';
+  for (const s of product.sizes){
+    const btn = document.createElement('button');
+    btn.className = 'pill small' + (s === selectedSize ? ' selected' : '');
+    btn.textContent = s;
+    btn.addEventListener('click', ()=> {
+      selectedSize = s;
+      renderSizes();
+    });
+    sizePills.appendChild(btn);
+  }
+}
+
+function renderColors(){
+  colorPills.innerHTML = '';
+  for (const c of product.colors){
+    const btn = document.createElement('button');
+    btn.className = 'pill' + (c.key === selectedColor ? ' selected' : '');
+    btn.textContent = c.label;
+    btn.addEventListener('click', ()=> {
+      selectedColor = c.key;
+      // change the carousel images to this color's images
+      const colorObj = product.colors.find(x => x.key === c.key);
+      currentImageList = colorObj && colorObj.images.length ? colorObj.images.slice() : carouselImages.slice();
+      // reset to first image
+      currentIndex = 0;
+      updateCarousel();
+      renderColors();
+    });
+    colorPills.appendChild(btn);
+  }
+}
+
+/* -------------------------
+   Carousel controls
+   -------------------------*/
+function updateCarousel(){
+  if (!currentImageList || currentImageList.length === 0) {
+    mainImage.src = carouselImages[0];
+    imageCounter.textContent = '1 / ' + carouselImages.length;
+    return;
+  }
+  mainImage.src = currentImageList[currentIndex];
+  imageCounter.textContent = (currentIndex + 1) + ' / ' + currentImageList.length;
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if (currentImageList.length === 0) return;
+  currentIndex = (currentIndex - 1 + currentImageList.length) % currentImageList.length;
+  updateCarousel();
+});
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if (currentImageList.length === 0) return;
+  currentIndex = (currentIndex + 1) % currentImageList.length;
+  updateCarousel();
+});
+// allow swipe on mobile
+let startX = null;
+mainImage.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX);
+mainImage.addEventListener('touchend', (e)=>{
+  if (startX === null) return;
+  const dx = (e.changedTouches[0].clientX - startX);
+  if (Math.abs(dx) > 30){
+    if (dx < 0) { // swipe left -> next
+      document.getElementById('nextBtn').click();
+    } else {
+      document.getElementById('prevBtn').click();
+    }
+  }
+  startX = null;
+});
+
+/* -------------------------
+   Quantity controls
+   -------------------------*/
+document.getElementById('qtyMinus').addEventListener('click', ()=>{
+  if (selectedQty > 1) selectedQty--;
+  qtyValue.textContent = selectedQty;
+});
+document.getElementById('qtyPlus').addEventListener('click', ()=>{
+  selectedQty++;
+  qtyValue.textContent = selectedQty;
+});
+
+/* -------------------------
+   Add to cart -> localStorage
+   -------------------------*/
+function showToast(text){
+  const t = document.getElementById('toast');
+  t.textContent = text;
+  t.style.display = 'block';
+  setTimeout(()=> t.style.display = 'none', 2000);
+}
+
+document.getElementById('addToCartBtn').addEventListener('click', ()=>{
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const item = {
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    size: selectedSize,
+    color: selectedColor,
+    quantity: selectedQty,
+    image: currentImageList[0] || carouselImages[0],
+    addedAt: Date.now()
+  };
+  cart.push(item);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  showToast('Added to cart');
+});
+
+/* -------------------------
+   Order now -> open order.html with params
+   -------------------------*/
+document.getElementById('orderNowBtn').addEventListener('click', ()=>{
+  const item = {
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    size: selectedSize,
+    color: selectedColor,
+    quantity: selectedQty,
+    image: currentImageList[0] || carouselImages[0]
+  };
+
+  // Save this single product
+  localStorage.setItem("singleProduct", JSON.stringify(item));
+
+  // Go to order page
+  window.location.href = "order.html";
+});
+/* -------------------------
+   FAQ accordion toggle
+   -------------------------*/
+document.querySelectorAll('.faq .item').forEach(item=>{
+  item.querySelector('.question').addEventListener('click', ()=>{
+    const ans = item.querySelector('.answer');
+    const open = ans.style.display === 'block';
+    document.querySelectorAll('.faq .answer').forEach(a => a.style.display = 'none');
+    if (!open) ans.style.display = 'block';
+  });
+});
+
+/* -------------------------
+   Related products (sample)
+   -------------------------*/
+const relatedGrid = document.getElementById('relatedGrid');
+const sampleRelated = [
+  {title:'New Casual Low-Top Fashion Sneakers', price:'Br4,499.00 ETB', img:'/mnt/data/Screenshot_20251202_103716_Chrome.jpg'},
+  {title:'Adidas LA Trainer – Men’s Casual Shoes', price:'Br16,300.00 ETB', img:'/mnt/data/Screenshot_20251202_103744_Chrome.jpg'},
+  {title:'Casual Men’s Pants', price:'Br3,699.00 ETB', img:'/mnt/data/Screenshot_20251202_103720_Chrome.jpg'},
+  {title:"Women's New Casual Stretch Slim Foot Jeans", price:'Br3,999.00 ETB', img:'/mnt/data/Screenshot_20251202_104021_Chrome.jpg'}
+];
+
+for(const r of sampleRelated){
+  const card = document.createElement('div');
+  card.className = 'rel-card';
+  card.innerHTML = `<img src="${r.img}" alt="${r.title}"><div class="rel-title">${r.title}</div><div class="rel-price">${r.price}</div>`;
+  relatedGrid.appendChild(card);
+}
+
+/* -------------------------
+   Initial render
+   -------------------------*/
+renderSizes();
+renderColors();
+updateCarousel();
+qtyValue.textContent = selectedQty;
+
+</script>
+</body>
+</html>

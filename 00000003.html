@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits & Vegetables</title>
+    <style>
+        /* General Reset and Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light grey background for the page */
+        }
+
+        /* Container for the entire content */
+        .container {
+            max-width: 600px; /* Optional: Limit width for mobile/app feel */
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Hero Image Styles */
+        .hero-image-container {
+            padding: 0 10px 10px 10px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Product Card Section (Horizontal Scroll) */
+        .product-list-container {
+            display: flex;
+            overflow-x: scroll; /* Enables horizontal scrolling */
+            padding: 10px;
+            -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+            /* Hide scrollbar for a cleaner look */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+
+        .product-list-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        /* Individual Product Card Styles */
+        .product-card {
+            min-width: 48%; /* Adjust to show about two cards at once */
+            margin-right: 15px; /* Space between cards */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            text-align: left;
+            position: relative;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 150px; /* Fixed height for product image */
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            display: block;
+        }
+
+        .product-details {
+            padding: 0 10px;
+        }
+
+        .product-title {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+        }
+
+        .product-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .product-sizes {
+            font-size: 0.9em;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .more-sizes {
+            font-size: 0.7em;
+            color: #007bff; /* Blue color for link-like text */
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Add to Cart Button Styles */
+        .add-to-cart-button {
+            width: calc(100% - 20px); /* 100% width minus padding */
+            padding: 10px 15px;
+            margin: 15px 10px 0 10px;
+            background-color: white;
+            color: #007bff; /* Primary blue color */
+            border: 1px solid #007bff;
+            border-radius: 50px; /* Pill shape */
+            text-align: center;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #f0f8ff; /* Light hover effect */
+        }
+        /* Optional: Scroll navigation arrows (as shown in image) */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .scroll-arrow.left {
+            left: 5px;
+        }
+
+        .scroll-arrow.right {
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        Fruits & Vegetables
+    </div>
+
+    <div class="hero-image-container">
+        <img src="./Cooking Tasks.jpg" alt="A large basket of mixed fruits and vegetables" class="hero-image">
+    </div>
+
+    <div class="product-list-container">
+
+        <div class="product-card">
+            <button class="scroll-arrow left" style="display: none;">&lt;</button>
+
+            <div class="product-image-container">
+                <img src="./FoodItems2.jpg" alt="Broccoli heads" class="product-image">
+            </div>
+
+            <div class="product-details">
+                <p class="product-title">Broccoli</p>
+                <div class="product-price">$1.50</div>
+                <div class="product-sizes">1kg 500gm</div>
+                <div class="more-sizes">MORE SIZES AVAILABLE</div>
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="./HealthCare.jpg" alt="Fresh green lettuce" class="product-image">
+            </div>
+
+            <div class="product-details">
+                <p class="product-title">Ansalaato (Lettuce)</p>
+                <div class="product-price">$1.00</div>
+                <div class="product-sizes">1kg 500gm</div>
+                <div class="more-sizes">MORE SIZES AVAILABLE</div>
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+            <button class="scroll-arrow right" style="position: absolute; right: 10px; top: 200px; display: none;">&gt;</button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="./Cooking Tasks.jpg" alt="Carrots" class="product-image">
+            </div>
+            <div class="product-details">
+                <p class="product-title">Carrots</p>
+                <div class="product-price">$0.75</div>
+                <div class="product-sizes">500gm 250gm</div>
+                <div class="more-sizes">MORE SIZES AVAILABLE</div>
+                <button class="add-to-cart-button">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+</body>
+</html>

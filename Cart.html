@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopping Cart</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+/* Empty Cart Box */
+.empty-box {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.empty-msg {
+    color: gray;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.btn {
+    padding: 14px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: white;
+    border: 2px solid black;
+    color: black;
+}
+
+/* Full Cart */
+.cart-container {
+    padding: 16px;
+}
+
+.cart-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item {
+    background: white;
+    padding: 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.item img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-cat {
+    color: gray;
+    font-size: 14px;
+}
+
+.qty-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.qty-box button {
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    background: white;
+    border: 1px solid gray;
+}
+
+.qty-box span {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.remove-btn {
+    font-size: 26px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Summary */
+.summary {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background: #007bff;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<div id="emptyCart" style="display:none;">
+    <div class="empty-box">
+        <div class="empty-title">Shopping Cart</div>
+        <div class="empty-msg">Your cart is empty</div>
+
+        <button class="btn-outline" onclick="goHome()">CONTINUE SHOPPING</button>
+    </div>
+</div>
+
+<div id="fullCart" style="display:none;">
+    <div class="cart-container">
+        <div class="cart-title">SHOPPING CART</div>
+
+        <div id="cartItems"></div>
+
+        <div class="summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>TOTAL</span>
+                <span id="total" style="color:#007bff; font-weight:bold;">$0.00</span>
+            </div>
+
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+            <button class="btn-outline" style="width:100%; margin-top:12px;" onclick="goHome()">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+// Load Cart
+let cart = JSON.parse(localStorage.getItem("cartList")) || [];
+
+// Show correct page
+function renderCart() {
+    if (cart.length === 0) {
+        document.getElementById("emptyCart").style.display = "block";
+        document.getElementById("fullCart").style.display = "none";
+        return;
+    }
+
+    document.getElementById("emptyCart").style.display = "none";
+    document.getElementById("fullCart").style.display = "block";
+
+    let html = "";
+    let subtotal = 0;
+
+    cart.forEach((item, i) => {
+        subtotal += item.price * item.qty;
+
+        html += `
+        <div class="item">
+            <img src="${item.image}">
+            <div class="item-info">
+                <div class="item-name">${item.name}</div>
+                <div class="item-cat">${item.category}</div>
+                <div class="qty-box">
+                    <button onclick="decreaseQty(${i})">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="increaseQty(${i})">+</button>
+                    <span class="remove-btn" onclick="removeItem(${i})">×</span>
+                </div>
+            </div>
+
+            <div style="font-size:20px; font-weight:bold;">$${item.price.toFixed(2)}</div>
+        </div>
+        `;
+    });
+
+    document.getElementById("cartItems").innerHTML = html;
+    document.getElementById("subtotal").innerText = "$" + subtotal.toFixed(2);
+    document.getElementById("total").innerText = "$" + subtotal.toFixed(2);
+}
+
+// Buttons
+function increaseQty(i) {
+    cart[i].qty++;
+    saveCart();
+}
+function decreaseQty(i) {
+    if (cart[i].qty > 1) {
+        cart[i].qty--;
+    } else {
+        cart.splice(i, 1);
+    }
+    saveCart();
+}
+function removeItem(i) {
+    cart.splice(i, 1);
+    saveCart();
+}
+
+function saveCart() {
+    localStorage.setItem("cartList", JSON.stringify(cart));
+    renderCart();
+}
+
+// Continue Shopping
+function goHome() {
+    window.location.href = "index.html";
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kid Needs Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6ff;
+      color: #333;
+    }
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 20px;
+      width:500px;
+      height: 500px;
+    }
+    .dots {
+      text-align: center;
+      margin: 8px 0;
+    }
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.active {
+      background-color: #00a000;
+    }
+    .section {
+      padding: 20px;
+      background: #eaf0ff;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .feature-icon {
+      font-size: 40px;
+      color: #00a000;
+      margin-right: 15px;
+    }
+    .feature-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .feature-text {
+      font-size: 15px;
+      margin-top: 4px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="./Cooking Tasks.jpg" alt="Banner 1" />
+      <img src="./FoodItems2.jpg" alt="Banner 2" />
+    </div>
+  </div>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+
+  <!-- Features Section -->
+  <div class="section">
+    <div class="feature">
+      <i class="fa-solid fa-truck-fast feature-icon"></i>
+      <div>
+        <div class="feature-title">FAST DELIVERY</div>
+        <div class="feature-text">Quick Delivery All Over Mogadishu For Just $1.</div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-headset feature-icon"></i>
+      <div>
+        <div class="feature-title">QUICK SUPPORT</div>
+        <div class="feature-text">Contact us between 6am to 11pm, 7 days a week</div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-rotate-left feature-icon"></i>
+      <div>
+        <div class="feature-title">3 DAYS RETURN</div>
+        <div class="feature-text">Simply return it within 3 days for an exchange.</div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <i class="fa-solid fa-lock feature-icon"></i>
+      <div>
+        <div class="feature-title">100% SECURE PAYMENT</div>
+        <div class="feature-text">We ensure secure payment of your orders</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
