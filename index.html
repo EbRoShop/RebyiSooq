@@ -370,6 +370,22 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     display: none;
 }
 
+
+/*For last footer*/
+.payment-logos a:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .footer-text {
+        font-size: 20px;
+    }
+
+    .payment-logos a img {
+        height: 34px;
+    }
+}
 </style>
 </head>
 <body>
@@ -1670,6 +1686,55 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
 
 </div>
 </div>
+
+
+
+<!--Last footer-->
+
+<div style="  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;">
+<div style=" text-align: center;
+    padding: 40px 20px 30px;" class="footer-bottom">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+        <img style="  max-width: 160px;
+    margin-bottom: 24px;" src="./Ebroshop2.jpg" alt="Adeeg Logo">
+    </div>
+
+    <!-- Copyright -->
+    <div style="  color: #828080;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;" class="footer-text">
+        EbRoShop.Com©2025 All Rights Reserved
+    </div>
+
+    <!-- Payment / Partner Logos (Clickable) -->
+    <div style=" display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;" class="payment-logos">
+        <a href="https://www.combanketh.et/" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./CBE.jpg" alt="Hormuud">
+        </a>
+
+        <a href="https://Telebirr.com/" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./Telebirr.jpg" alt="Somtel">
+        </a>
+    </div>
+
+</div>
+</div>
+
+
+
 
 <script>
 /* -------------------------
