@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#fff;
+      color:#111;
+    }
+
+    /* SEARCH PANEL */
+    #searchPanel{
+      position:fixed;
+      inset:0;
+      background:#fff;
+      z-index:9999;
+      overflow-y:auto;
+    }
+
+    .search-top{
+      display:flex;
+      gap:10px;
+      padding:14px;
+      border-bottom:1px solid #eee;
+    }
+
+    .search-top input{
+      flex:1;
+      padding:14px;
+      font-size:16px;
+      border:2px solid #111;
+      border-radius:14px;
+      outline:none;
+    }
+
+    .search-close-btn{
+      padding:12px 16px;
+      background:#136835;
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    /* PRODUCTS */
+    .products-wrap{ padding:14px; }
+
+    .products-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .product-card{
+      width:100%;
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+
+    .product-card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .product-name{
+      padding:12px 12px 6px;
+      font-size:18px;
+      font-weight:700;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .product-price{
+      padding:0 12px;
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .add-btn{
+      margin:12px;
+      width:calc(100% - 24px);
+      padding:14px 0;
+      background:#008cff;
+      color:#fff;
+      border:none;
+      font-size:16px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+
+    .empty{
+      padding:30px;
+      text-align:center;
+      color:#777;
+    }
+
+    @media(min-width:520px){
+      .product-card{ width:48%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SEARCH PANEL (OPEN BY DEFAULT) -->
+<div id="searchPanel">
+  <div class="search-top">
+    <input id="searchInput" type="text" placeholder="Search products...">
+    <button class="search-close-btn" id="closeSearch"><a style="text-decoration: none; color: #fff;" href="./index.html">Close</a></button>
+  </div>
+
+  <div class="products-wrap">
+    <div id="searchResults" class="products-grid"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  /* PRODUCTS DATA */
+  const defaultProducts = [
+    {id:1,name:"Rooti Slice Cad...",price:1,image:"https://via.placeholder.com/600x400?text=Slice",category:"Bread",tags:["slice"],description:"Slice bread"},
+    {id:2,name:"Rooti Qamadi...",price:1,image:"https://via.placeholder.com/600x400?text=Qamadi",category:"Bread",tags:["qamadi"],description:"Qamadi bread"},
+    {id:3,name:"Rooti Beegar...",price:.5,image:"https://via.placeholder.com/600x400?text=Beegar",category:"Bread",tags:["beegar"],description:"Beegar bread"},
+    {id:4,name:"Ceesh (Arabic)",price:1,image:"https://via.placeholder.com/600x400?text=Ceesh",category:"Arabic",tags:["arabic"],description:"Arabic ceesh"}
+  ];
+
+  const extraProducts = [
+    {id:5,name:"Rice 5kg",price:5,image:"https://via.placeholder.com/600x400?text=Rice",category:"Rice",tags:["rice"],description:"White rice"},
+    {id:6,name:"Egg Pack",price:3,image:"https://via.placeholder.com/600x400?text=Eggs",category:"Egg",tags:["egg"],description:"Fresh eggs"}
+  ];
+
+  const allProducts = [...defaultProducts,...extraProducts];
+
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  const closeSearch = document.getElementById("closeSearch");
+
+  function render(list){
+    if(!list.length){
+      searchResults.innerHTML = "<div class='empty'>No products found</div>";
+      return;
+    }
+    searchResults.innerHTML = list.map(p=>`
+      <div class="product-card">
+        <img src="${p.image}">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">${p.price.toFixed(2)} birr</div>
+        <button class="add-btn" onclick="quickAdd(${p.id})">Quick Add</button>
+      </div>
+    `).join("");
+  }
+
+  window.quickAdd = function(id){
+    alert("Added to cart");
+  };
+
+  searchInput.addEventListener("input",()=>{
+    const q = searchInput.value.toLowerCase().trim();
+    if(!q){ render(defaultProducts); return; }
+
+    const results = allProducts.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.tags.join(" ").toLowerCase().includes(q)
+    );
+    render(results);
+  });
+
+  closeSearch.addEventListener("click",()=>{
+    searchInput.value="";
+    render(defaultProducts);
+  });
+
+  /* INITIAL LOAD */
+  render(defaultProducts);
+  setTimeout(()=>searchInput.focus(),100);
+
+})();
+</script>
+</body>
+</html>
