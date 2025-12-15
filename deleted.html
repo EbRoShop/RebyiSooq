@@ -7,3 +7,43 @@
             padding-top: 10px; 
             padding-bottom: 20px;" class="centered-dot"></div>
     </div>
+
+
+
+      <a href="search.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+
+
+
+if (p.image) {
+    await fetch(`${API}/sendPhoto`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: 5335234629,
+        photo: p.image,
+        caption: `📸 ${p.name}`
+      })
+    });
+  }
+
+
+
+
+
+  await fetch(`${API}/sendPhoto`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    chat_id: CHAT_ID,
+    photo: smallCloudinary(p.image),
+    caption: p.name
+  })
+});
+
+5335234629
+8458097036:AAG29CuWdhYBKspr3BS6N-yWeXkkBEVUzTo

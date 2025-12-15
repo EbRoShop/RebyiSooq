@@ -460,7 +460,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   </div>
 
   <!-- Title -->
-  <div class="page-title">DAIRY</div>
+  <div style="text-align: center;" class="page-title">DAIRY</div>
 
   <!-- Controls -->
   <div class="controls">
@@ -493,18 +493,40 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
 
   <!-- Products -->
   <div class="products" id="products">
-    <div class="product" data-name="Almarai Full Fat" data-price="18">
-      <img src="./Childes.jpg" alt="Almarai Full Fat" />
-      <h4>Almarai Full Fat</h4>
-      <div class="price">$18.00</div>
-      <a href="#" class="btn" onclick="addToCart(event, 'Almarai Full Fat', 18)">Quick Add</a>
-    </div>
-    <div class="product" data-name="Egg" data-price="10">
-      <img src="./Cooking Tasks.jpg" alt="Egg" />
-      <h4>Egg</h4>
-      <div class="price">$10.00</div>
-      <a href="#" class="btn" onclick="addToCart(event, 'Almarai Full Fat', 18)">Quick Add</a>
-    </div>
+   <div class="product"
+     data-id="1"
+     data-name="Almarai Full Fat"
+     data-price="18">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1765801525/gpiy2nq36jvb74h8gdkh.jpg">
+
+  <h3>Almarai Full Fat</h3>
+  <p>18 Birr</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+   <div class="product"
+     data-id="2"
+     data-name="Almarai Low Fat"
+     data-price="16">
+
+  <img src="./image2.jpg">
+
+  <h3>Almarai Low Fat</h3>
+  <p>16 Birr</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
   </div>
 
 
@@ -692,27 +714,26 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   /* -------------------------
      Quick add function
      ------------------------- */
-  window.quickAdd = function(id){
-    const product = allProducts.find(p => p.id == id);
-    if(!product){ alert("Product not found"); return; }
-    const cart = loadCart();
-    const existing = cart.find(it => it.id == product.id);
-    if(existing){
-      existing.qty = (existing.qty || 0) + 1;
-    } else {
-      cart.push({
-        id: product.id,
-        name: product.name,
-        img: product.image,
-        price: parseFloat(product.price),
-        qty: 1
-      });
-    }
-    saveCart(cart);
-    updateBadge();
-    const short = product.name.length > 30 ? product.name.slice(0,28) + "…" : product.name;
-    alert(short + " added to cart");
-  };
+function addToCart(e, name, price, image){
+  e.preventDefault();
+
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const existing = cart.find(p => p.name === name);
+  if(existing){
+    existing.qty += 1;
+  } else {
+    cart.push({
+      name,
+      price,
+      qty: 1,
+      image // ✅ CLOUDINARY URL
+    });
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+  alert(name + " added to cart");
+}
 
   /* -------------------------
      Side menu handlers
@@ -847,15 +868,35 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     };
 
     // Quick add → add to cart + redirect
-    function addToCart(e, name, price) {
-      e.preventDefault();
+function addToCart(e, btn) {
+  e.preventDefault();
 
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push({ name, price, qty: 1 });
-      localStorage.setItem('cart', JSON.stringify(cart));
+  const product = btn.closest(".product");
+  if (!product) return;
 
-      window.location.href = 'cart.html';
-    }
+  const item = {
+    id: product.dataset.id,
+    name: product.dataset.name,
+    price: Number(product.dataset.price),
+    image: product.querySelector("img").src,
+    qty: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const existing = cart.find(p => p.id === item.id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push(item);
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(cart));
+
+  // ✅ redirect always works
+  window.location.href = "Cart.html";
+}
+
   </script>
 
 </body>
