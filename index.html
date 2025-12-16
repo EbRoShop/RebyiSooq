@@ -78,6 +78,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   overflow-y:auto;
 }
 
+#sideMenu a {
+  text-decoration: none; /* remove underline */
+  color: #111;           /* text color */
+}
+
 /* MENU SECTIONS */
 .menu-title{
   color:#999;
@@ -471,29 +476,127 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
 <!-- OVERLAY + SIDE MENU -->
 <div id="menuOverlay" aria-hidden="true"></div>
 
-<div id="sideMenu" aria-hidden="true">
+
+
+  <div id="sideMenu" aria-hidden="true">
   <span class="close-btn" id="closeMenu">✖️</span>
 
-  <div class="login-row">
+  <!-- Login -->
+  <a href="login.html" class="login-row">
     <div class="user-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/></svg>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+        <path d="M4 20a8 8 0 0116 0"/>
+      </svg>
     </div>
-    <div style="font-size:18px;">Login or register</div>
-  </div>
+    <div style="font-size:18px;">Login or Register</div>
+  </a>
 
-  <div class="menu-item">Competitions</div>
-  <div class="menu-item">Teams</div>
-  <div class="menu-item">Players</div>
-  <div class="menu-item">Transfers</div>
-  <div class="menu-item">Find match</div>
-  <div class="menu-item">Televised</div>
-  <div class="menu-title">More</div>
-  <div class="menu-item">Remove ads</div>
-  <div class="menu-item">Settings</div>
-  <div class="menu-item">About us</div>
-  <div class="menu-item">Report incidence</div>
-  <div class="menu-item">Beta tester</div>
+  <!-- Main Links -->
+  <a href="index.html" class="menu-item">
+    <!-- Home Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 12l9-9 9 9v9a3 3 0 01-3 3h-12a3 3 0 01-3-3v-9z"/>
+    </svg>
+    <span>Home</span>
+  </a>
+
+  <a href="about.html" class="menu-item">
+    <!-- Info Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="16" x2="12" y2="12"/>
+      <line x1="12" y1="8" x2="12" y2="8"/>
+    </svg>
+    <span>About-us</span>
+  </a>
+
+  <a href="contact.html" class="menu-item">
+    <!-- Contact/Phone Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.12 19.5 19.5 0 01-6-6 19.86 19.86 0 01-3.12-8.63A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.87.38 1.72.72 2.53a2 2 0 01-.45 2.11L9.91 9.09a16 16 0 006 6l1.73-1.73a2 2 0 012.11-.45c.81.34 1.66.59 2.53.72a2 2 0 011.72 2z"/>
+    </svg>
+    <span>Contact-us</span>
+  </a>
+
+  <a href="faq.html" class="menu-item">
+    <!-- FAQ/Question Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M9.09 9a3 3 0 115.82 0c0 2-3 3-3 3"/>
+      <line x1="12" y1="17" x2="12" y2="17"/>
+    </svg>
+    <span>FAQ's</span>
+  </a>
+
+  <a href="terms.html" class="menu-item">
+    <!-- Document Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+      <path d="M14 2v6h6"/>
+    </svg>
+    <span>Terms Of Service</span>
+  </a>
+
+  <a href="returns.html" class="menu-item">
+    <!-- Return/Arrow Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="1 4 1 10 7 10"/>
+      <path d="M3.51 15a9 9 0 0012.36 3.36l3.13-3.13"/>
+    </svg>
+    <span>Return Policy</span>
+  </a>
+
+  <a href="privacy.html" class="menu-item">
+    <!-- Lock Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="11" width="18" height="11" rx="2"/>
+      <path d="M7 11V7a5 5 0 0110 0v4"/>
+    </svg>
+    <span>Privacy Policy</span>
+  </a>
+
+  <!-- Products -->
+  <div class="menu-title">Products</div>
+
+  <a href="basic-food.html" class="menu-item">
+    <!-- Food Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 8v8M8 12h8"/>
+    </svg>
+    <span>Basic Food</span>
+  </a>
+
+  <a href="cooking.html" class="menu-item">
+    <!-- Cooking Ingredients Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2"/>
+      <rect x="2" y="2" width="20" height="6" rx="2"/>
+    </svg>
+    <span>Cooking ingrident</span>
+  </a>
+
+  <a href="baby.html" class="menu-item">
+    <!-- Baby Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="7" r="4"/>
+      <path d="M6 21v-2a6 6 0 0112 0v2"/>
+    </svg>
+    <span>Baby product</span>
+  </a>
+
+  <a href="health.html" class="menu-item">
+    <!-- Health/Medical Icon -->
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 10h-6l-3-6-3 6H3l5 7-2 6 6-4 6 4-2-6 5-7z"/>
+    </svg>
+    <span>HealthCare</span>
+  </a>
 </div>
+
+
+
 
 <!-- SEARCH PANEL -->
 <div id="searchPanel" aria-hidden="true">
@@ -1680,7 +1783,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     text-decoration: none;
     color: #9a9a9a;
     font-size: 20px;
-    margin: 14px 0;" href="#">About EbRoShop</a>
+    margin: 14px 0;" href="about.html">About EbRoShop</a>
             <a style="  display: block;
     text-decoration: none;
     color: #9a9a9a;

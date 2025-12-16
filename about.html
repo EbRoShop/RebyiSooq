@@ -231,9 +231,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   
   /*about page*/
     /* MAIN CARD */
-    .card {
-     
-    }
+
 
     .grid {
       display: grid;
@@ -310,6 +308,47 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
       font-size: 15px;
     }
 
+
+    
+        /*for FAQ's*/
+        .links a:hover {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*For last footer*/
+.payment-logos a:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .footer-text {
+        font-size: 20px;
+    }
+
+    .payment-logos a img {
+        height: 34px;
+    }
+}
+
+
+/*for bottom nav*/
+  .nav-item.active {
+    color: #000;
+  }
+
+  .nav-item.active svg {
+    stroke: #000;
+  }
+
+  .cart {
+    position: relative;
+  }
 
   </style>
 </head>
@@ -522,6 +561,182 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     </div>
   </main>
    </div>
+
+
+
+<img src="./Ebroshop.jpg" width="400px" height="150px"/>
+<!--FAQ's-->
+ <div style="   margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;">
+
+<div style="  padding: 20px;" class="footer">
+
+    <h2 style="    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;">CONNECT WITH US</h2>
+
+    <div style="    display: flex;
+    gap: 24px;
+    font-size: 32px;
+    margin-bottom: 24px;" class="social-icons">
+        <a style=" color: #222;
+    text-decoration: none;" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a style=" color: #222;
+    text-decoration: none;" href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Adeeg Section (CLOSED by default) -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('adeeg', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">EbRoShop</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="adeeg">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="about.html">About EbRoShop</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">FAQs</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Contact Us</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Terms Of Service</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Refund Policy</a>
+        </div>
+    </div>
+
+    <!-- Store Policy -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('store', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Store Policy</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="store">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Privacy Policy</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Shipping Policy</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Return Policy</a>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <div style=" border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('contact', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Contact Us</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="contact">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Email Us</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Support Center</a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<!--Last footer-->
+
+<div style="  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;">
+<div style=" text-align: center;
+    padding: 40px 20px 30px;" class="footer-bottom">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+        <img style="  max-width: 160px;
+    margin-bottom: 24px;" src="./Ebroshop2.jpg" alt="Adeeg Logo">
+    </div>
+
+    <!-- Copyright -->
+    <div style="  color: #828080;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;" class="footer-text">
+        EbRoShop.Com©2025 All Rights Reserved
+    </div>
+
+    <!-- Payment / Partner Logos (Clickable) -->
+    <div style=" display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;" class="payment-logos">
+        <a href="https://www.combanketh.et/" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./CBE.jpg" alt="Hormuud">
+        </a>
+
+        <a href="https://Telebirr.com/" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./Telebirr.jpg" alt="Somtel">
+        </a>
+    </div>
+
+</div>
+</div>
+
 
 
 <!--For bottom nav-->
@@ -834,6 +1049,23 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     }, { threshold: 0.3 });
 
     items.forEach(el => observer.observe(el));
+
+
+
+            /*for FAQ's*/
+        
+function toggleSection(id, header) {
+    const content = document.getElementById(id);
+    const icon = header.querySelector('.toggle');
+
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+    } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+    }
+}
   </script>
 </body>
 </html>
