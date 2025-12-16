@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ's</title>
+  <style>
+    /* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff}
+
+/* HEADER */
+.header{
+  background:#136835;
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  color:#fff;
+}
+.left,.right{display:flex;align-items:center;gap:18px}
+.icon-btn{cursor:pointer;display:flex;align-items:center}
+.icon-btn svg{
+  width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;
+}
+
+/* CART BADGE */
+.cart{position:relative;}
+.badge{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#fff;
+  color:#136835;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:bold;
+  display:none;
+}
+
+/* LOGO */
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-circle{
+  width:42px;height:42px;background:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;padding:5px;
+}
+.logo-text .main{font-size:20px;font-weight:bold}
+.logo-text .sub{font-size:10px;margin-top:2px;text-transform:uppercase}
+
+/* OVERLAY */
+#menuOverlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.42);
+  display:none;z-index:9;
+}
+
+/* SIDE MENU (SLIDE DRAWER) */
+#sideMenu{
+  position:fixed;
+  top:0;
+  left:-320px;
+  width:320px;
+  height:100%;
+  background:#fafafa;
+  box-shadow:3px 0 8px rgba(0,0,0,0.2);
+  z-index:10;
+  transition:left .28s ease;
+  padding:20px 22px;
+  overflow-y:auto;
+}
+
+/* MENU SECTIONS */
+.menu-title{
+  color:#999;
+  font-size:14px;
+  margin:18px 0 6px;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  font-size:16px;
+  color:#000;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+.menu-item svg{
+  width:22px;height:22px;stroke:#000;fill:none;stroke-width:1.7;
+}
+
+/* LOGIN ROW */
+.login-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0 20px;
+  border-bottom:1px solid #ddd;
+}
+.login-row .user-icon{
+  width:46px;height:46px;border-radius:50%;background:#eee;
+  display:flex;align-items:center;justify-content:center;
+}
+.login-row .user-icon svg{width:28px;height:28px;stroke:#777}
+
+/* CLOSE BUTTON */
+.close-btn{
+  font-size:26px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+
+/* for text header */
+@keyframes ticker-scroll{
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+@media (max-width:520px){
+  .ticker-track{font-size:14px}
+}
+
+/* -------------------------
+   SEARCH PANEL STYLES
+   ------------------------- */
+#searchPanel {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#fff;
+  z-index:9999;
+  display:none;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.search-top {
+  padding:12px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid #eee;
+}
+
+.search-top input {
+  flex:1;
+  padding:12px;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.search-close-btn {
+  padding:10px 14px;
+  background:#136835;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* product card design (matches your screenshot) */
+.products-wrap { padding:14px; }
+.products-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:space-between;
+}
+
+.product-card {
+    width: 48%;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.07);
+    padding-bottom:8px;
+    overflow:hidden;
+}
+
+.product-card img {
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
+.product-name {
+  padding:10px;
+    font-size:16px;
+    font-weight:600;
+}
+.product-price {
+    padding:0 10px;
+    font-size:16px;
+    font-weight:bold;
+    color:#111;
+}
+.add-btn {
+    margin:12px 10px 16px 10px;
+    width:calc(100% - 20px);
+    padding:10px 0;
+    background:#008cff;
+    color:#fff;
+    border:none;
+    font-size:15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* small responsiveness */
+@media (max-width:520px){
+  .product-card{width:100%}
+  .logo-text .main{font-size:16px}
+}
+
+
+    
+
+
+
+    summary {
+      font-weight: 600;
+      color: #111;
+      outline: none;
+    }
+
+    p {
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+
+    ol, ul {
+      margin: 15px 0 10px 25px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    a {
+      color: #0078D7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Animation Part */
+    .animate-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.5s ease-out;
+    }
+
+    .animate-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+
+        /*for FAQ's*/
+        .links a:hover {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*For last footer*/
+.payment-logos a:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .footer-text {
+        font-size: 20px;
+    }
+
+    .payment-logos a img {
+        height: 34px;
+    }
+}
+
+
+/*for bottom nav*/
+  .nav-item.active {
+    color: #000;
+  }
+
+  .nav-item.active svg {
+    stroke: #000;
+  }
+
+  .cart {
+    position: relative;
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP TICKER -->
+<div style=" background:#136835; --white:#ffffff; --muted-white:rgba(255,255,255,0.95);">
+  <div style="font-family: Helvetica Neue, Arial, sans-serif; background:#fff;">
+    <header style="background:#136835; color:var(--white); width:100%; box-shadow: 0 1px 0 rgba(0,0,0,0.08);" class="site-header" role="banner">
+      <div style="overflow:hidden; border-top:1px solid rgba(255,255,255,0.06);" class="ticker-wrap" aria-hidden="false">
+        <div style="display:block; width:100%; padding:10px 0;" class="ticker" role="marquee">
+          <div style="display:inline-block; white-space:nowrap; will-change:transform; font-weight:600; font-size:16px; color:var(--muted-white); animation: ticker-scroll 10s linear infinite;" class="ticker-track">
+            <span style="display:inline-block; padding-right:60px;">Fast delivery all over Addis Abeba. Order Now.</span>
+            <span style="display:inline-block; padding-right:60px;">ወዳሉበት በፍጥነት ወዳሉበት እናደርሳለን. አሁኑኑ ይዘዙን</span>
+            <span style="padding-left:40px;">Fast delivery all over Addis Abeba. Order Now.</span>
+            <span style="padding-left:40px;">ወዳሉበት በፍጥነት ወዳሉበት እናደርሳለን. አሁኑኑ ይዘዙን.</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<!-- MAIN HEADER -->
+<div  class="header">
+  <div class="left">
+    <div class="icon-btn" id="hamburgerBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </div>
+
+    <div class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4-4"/></svg>
+    </div>
+  </div>
+
+  <div class="logo-area">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:inherit">
+      <div class="logo-circle" title="EbRoShop">
+        <svg viewBox="0 0 64 64" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 4c10 4 10 16 0 20c-4-6-6-14 0-20z" fill="#3fbf4c"/>
+          <path d="M20 32a14 14 0 1128 0c0 10-8 14-14 14s-14-4-14-14h20" stroke="#3fbf4c" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text" style="margin-left:8px;">
+        <div class="main">EbRoShop.com</div>
+        <div class="sub">by Ebro Gurage Tone</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="right">
+    <div class="icon-btn" id="accountBtn" aria-label="Account">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/>
+      </svg>
+    </div>
+
+    <div class="cart icon-btn" id="cartBtn" aria-label="Cart">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 3h2l3 12h10l3-8H6"/>
+        <circle cx="9" cy="20" r="1"/>
+        <circle cx="18" cy="20" r="1"/>
+      </svg>
+      <div class="badge" id="cartBadge">0</div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY + SIDE MENU -->
+<div id="menuOverlay" aria-hidden="true"></div>
+
+<div id="sideMenu" aria-hidden="true">
+  <span class="close-btn" id="closeMenu">✖️</span>
+
+  <div class="login-row">
+    <div class="user-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/></svg>
+    </div>
+    <div style="font-size:18px;">Login or register</div>
+  </div>
+
+  <div class="menu-item">Competitions</div>
+  <div class="menu-item">Teams</div>
+  <div class="menu-item">Players</div>
+  <div class="menu-item">Transfers</div>
+  <div class="menu-item">Find match</div>
+  <div class="menu-item">Televised</div>
+  <div class="menu-title">More</div>
+  <div class="menu-item">Remove ads</div>
+  <div class="menu-item">Settings</div>
+  <div class="menu-item">About us</div>
+  <div class="menu-item">Report incidence</div>
+  <div class="menu-item">Beta tester</div>
+</div>
+
+<!-- SEARCH PANEL -->
+<div id="searchPanel" aria-hidden="true">
+  <div class="search-top">
+    <input id="searchInput" type="text" placeholder="Search products..." aria-label="Search products">
+    <button class="search-close-btn" id="closeSearch">Close</button>
+  </div>
+
+  <div class="products-wrap">
+    <div id="searchResults" class="products-grid">
+      <!-- products will render here -->
+    </div>
+  </div>
+</div>
+  
+
+
+
+
+
+
+<div style="--cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #f6f3f3;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #8b1f3a;
+      --text: #222;
+      --radius: 6px;
+      font-family: Helvetica Neue, Arial, sans-serif;">
+<div style="  margin: 0;
+      color: #222;
+      background: #fff;">
+
+
+<div style="font-family: 'Poppins', sans-serif; background-color: #f9f9f9; color: #333;">
+
+  <!-- FAQ Section -->
+  <section class="animate-section" style="max-width: 900px; margin: 0px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Frequently Asked Questions</h2>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>What is Ebro-Shop?</summary>
+      <p style="background-color: #fafafa; font-family: Georgia, 'Times New Roman', Times, serif;">Ebro-Shop is an online platform that offers a wide range of household products and home-related items. It provides a convenient and reliable way for customers to shop from home while enjoying quality products and a smooth online shopping experience.</p>
+    </details>
+
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>How do I place an order?</summary>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">To place an order, browse our shop website, click "add to bag" the products you want, then go to order, and fill in your shipping and payment details to confirm your order.</p>
+    </details>
+
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>How can i order multiple items at once?</summary>
+      <p style="background-color: #fafafa; font-family: Georgia, 'Times New Roman', Times, serif;">To order many items at once, browse our shop website, go to our menu, click "add to bag" on the all items you want to order before placing your order.  Then fill out the order form (name and phone).  If you used transfer paymentMethod, there are a suggestion, apply it.  then you click on "send order".
+ Using this method you can order all the items you want at once.</p>
+    </details>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>Can I track my order?</summary>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Yes. Once your order has been shipped, you’ll receive a tracking link via email or SMS.</p>
+    </details>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>What payment methods do you accept?</summary>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">We accept bank transfers, Telebirr, and Cash methods depending on your location.</p>
+    </details>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>Can I return a product?</summary>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Yes. We offer a 3-day return policy on most items.Products must be unused and in their original packaging. Contact us for our support for easy returns.</p>
+    </details>
+  </section>
+
+  <!-- Getting Started -->
+  <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Getting Started</h2>
+    <ol>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Browse Ebro-Shop website on Chrome or others.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Select your desired products.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Complete your purchase through checkout.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Track your order and enjoy your items!</li>
+    </ol>
+  </section>
+
+  <!-- Technical Support -->
+  <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Technical Support</h2>
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif;">If you face any technical problems, please try the following steps:</p>
+    <ul>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Clear your browser cache and cookies.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Try a different web browser.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Ensure a stable internet connection.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Disable browser extensions that may interfere.</li>
+      <li style="font-family: Georgia, 'Times New Roman', Times, serif;">Update your browser to the latest version.</li>
+    </ul>
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif;">If the problem continues, please reach out through the <a href="./Contact.html">Contact Page</a>.</p>
+  </section>
+
+ </div>
+</div>
+</div>
+
+
+
+
+
+
+<img src="./Ebroshop.jpg" width="400px" height="150px"/>
+<!--FAQ's-->
+ <div style="   margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;">
+
+<div style="  padding: 20px;" class="footer">
+
+    <h2 style="    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;">CONNECT WITH US</h2>
+
+    <div style="    display: flex;
+    gap: 24px;
+    font-size: 32px;
+    margin-bottom: 24px;" class="social-icons">
+        <a style=" color: #222;
+    text-decoration: none;" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a style=" color: #222;
+    text-decoration: none;" href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Adeeg Section (CLOSED by default) -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('adeeg', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">EbRoShop</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="adeeg">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="about.html">About EbRoShop</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">FAQs</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Contact Us</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Terms Of Service</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Refund Policy</a>
+        </div>
+    </div>
+
+    <!-- Store Policy -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('store', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Store Policy</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="store">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Privacy Policy</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Shipping Policy</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Return Policy</a>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <div style=" border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('contact', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Contact Us</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="contact">
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Email Us</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="#">Support Center</a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<!--Last footer-->
+
+<div style="  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;">
+<div style=" text-align: center;
+    padding: 40px 20px 30px;" class="footer-bottom">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+        <img style="  max-width: 160px;
+    margin-bottom: 24px;" src="./Ebroshop2.jpg" alt="Adeeg Logo">
+    </div>
+
+    <!-- Copyright -->
+    <div style="  color: #828080;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;" class="footer-text">
+        EbRoShop.Com©2025 All Rights Reserved
+    </div>
+
+    <!-- Payment / Partner Logos (Clickable) -->
+    <div style=" display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;" class="payment-logos">
+        <a href="tel:*889#" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./CBE.jpg" alt="Hormuud">
+        </a>
+
+        <a href="tel:*127#" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="./Telebirr.jpg" alt="Somtel">
+        </a>
+    </div>
+
+</div>
+</div>
+
+
+
+<!--For bottom nav-->
+
+<div style=" padding-bottom: calc(72px + env(safe-area-inset-bottom));">
+
+    <nav style="  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9999;" class="bottom-nav">
+
+  <a href="index.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;" class="nav-item active">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;" viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <path d="M3 10.5L12 3l9 7.5"/>
+      <path d="M5 10v10h14V10"/>
+    </svg>
+    Home
+  </a>
+
+  <a href="search.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    Search
+  </a>
+  <div class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4-4"/></svg>
+    </div>
+
+  <a href="collection.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <rect x="3" y="3" width="7" height="7"/>
+      <rect x="14" y="3" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/>
+      <rect x="14" y="14" width="7" height="7"/>
+    </svg>
+    Collection
+  </a>
+
+  <a href="admin.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+    </svg>
+    Account
+  </a>
+
+  <a  style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  href="cart.html" class="nav-item cart">
+    <span style=" position: absolute;
+    top: 8px;
+    right: 28%;
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;" class="badge">0</span>
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="9" cy="21" r="1"/>
+      <circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l3.6 12.6a2 2 0 0 0 2 1.4h9.4"/>
+      <path d="M7 6h15l-1.5 8H9"/>
+    </svg>
+    Cart
+  </a>
+
+</nav>
+</div>
+
+
+
+<script>
+
+    /*header part*/
+/* -------------------------
+   Safe DOM ready wrapper
+   ------------------------- */
+(function(){
+  // product data (editable)
+  const defaultProducts = [
+    { id:1, name:"Rooti Slice Cad...", price:1.00, image:"https://via.placeholder.com/600x400?text=Rooti+Slice", category:"Bread", tags:["slice","white"], description:"Fresh sliced white bread." },
+    { id:2, name:"Rooti Qamadi...", price:1.00, image:"https://via.placeholder.com/600x400?text=Qamadi", category:"Bread", tags:["qamadi","brown"], description:"Soft brown qamadi bread." },
+    { id:3, name:"Rooti Beegar...", price:0.50, image:"https://via.placeholder.com/600x400?text=Beegar", category:"Bread", tags:["beegar","round"], description:"Round beegar bread." },
+    { id:4, name:"Ceesh (Arabic)", price:1.00, image:"https://via.placeholder.com/600x400?text=Ceesh", category:"Flatbread", tags:["arabic","ceesh"], description:"Arabic ceesh soft flatbread." }
+  ];
+  const extraProducts = [
+    { id:5, name:"Pasta Italian", price:1.20, image:"https://via.placeholder.com/600x400?text=Pasta", category:"Food", tags:["pasta","italy"], description:"Premium Italian pasta." },
+    { id:6, name:"Rice 5kg", price:5.00, image:"https://via.placeholder.com/600x400?text=Rice+5kg", category:"Rice", tags:["white","rice"], description:"High quality white rice." },
+    { id:7, name:"Egg Pack", price:3.00, image:"https://via.placeholder.com/600x400?text=Eggs", category:"Dairy", tags:["egg","protein"], description:"Fresh farm eggs." }
+  ];
+  const allProducts = [...defaultProducts, ...extraProducts];
+
+  // DOM elements
+  const hamburger = document.getElementById("hamburgerBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const closeMenu = document.getElementById("closeMenu");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchPanel = document.getElementById("searchPanel");
+  const closeSearch = document.getElementById("closeSearch");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  const cartBtn = document.getElementById("cartBtn");
+  const accountBtn = document.getElementById("accountBtn");
+  const badge = document.getElementById("cartBadge");
+
+  /* -------------------------
+     Cart helpers (persistent)
+     ------------------------- */
+  function loadCart(){
+    try{ return JSON.parse(localStorage.getItem("cartItems")) || []; } catch { return []; }
+  }
+  function saveCart(cart){
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+  }
+  function updateBadge(){
+    const cart = loadCart();
+    const total = cart.reduce((s,i)=> s + (i.qty||0), 0);
+    if(total > 0){
+      badge.style.display = "flex";
+      badge.innerText = total;
+    } else {
+      badge.style.display = "none";
+      badge.innerText = "0";
+    }
+    localStorage.setItem("cartCount", total);
+  }
+  // initialize badge on load
+  updateBadge();
+
+  /* -------------------------
+     Quick add function
+     ------------------------- */
+  window.quickAdd = function(id){
+    const product = allProducts.find(p => p.id == id);
+    if(!product){ alert("Product not found"); return; }
+    const cart = loadCart();
+    const existing = cart.find(it => it.id == product.id);
+    if(existing){
+      existing.qty = (existing.qty || 0) + 1;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        img: product.image,
+        price: parseFloat(product.price),
+        qty: 1
+      });
+    }
+    saveCart(cart);
+    updateBadge();
+    const short = product.name.length > 30 ? product.name.slice(0,28) + "…" : product.name;
+    alert(short + " added to cart");
+  };
+
+  /* -------------------------
+     Side menu handlers
+     ------------------------- */
+  function openMenu(){
+    sideMenu.style.left = "0";
+    menuOverlay.style.display = "block";
+    sideMenu.setAttribute("aria-hidden","false");
+  }
+  function closeMenuFn(){
+    sideMenu.style.left = "-320px";
+    menuOverlay.style.display = "none";
+    sideMenu.setAttribute("aria-hidden","true");
+  }
+  hamburger.addEventListener("click", openMenu);
+  menuOverlay.addEventListener("click", closeMenuFn);
+  closeMenu.addEventListener("click", closeMenuFn);
+
+  /* -------------------------
+     Search rendering
+     ------------------------- */
+  function escapeHtml(s){
+    return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderProducts(list){
+    if(!Array.isArray(list)) list = [];
+    if(list.length === 0){
+      searchResults.innerHTML = "<div style='padding:18px;color:#777'>No products found</div>";
+      return;
+    }
+    const html = list.map(p => {
+      return `
+        <div class="product-card" data-id="${p.id}">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}">
+          <div class="product-name">${escapeHtml(p.name)}</div>
+          <div class="product-price">${escapeHtml(Number(p.price).toFixed(2))} birr</div>
+          <button class="add-btn" onclick="quickAdd(${p.id})">Quick Add</button>
+        </div>
+      `;
+    }).join("");
+    searchResults.innerHTML = "<div class='products-grid'>"+html+"</div>";
+  }
+
+  function showDefaultProducts(){
+    renderProducts(defaultProducts);
+  }
+
+  /* open/close search */
+  searchBtn.addEventListener("click", function(){
+    searchPanel.style.display = "block";
+    searchPanel.setAttribute("aria-hidden","false");
+    searchInput.value = "";
+    showDefaultProducts();
+    setTimeout(()=> searchInput.focus(), 120);
+  });
+  closeSearch.addEventListener("click", function(){
+    searchPanel.style.display = "none";
+    searchPanel.setAttribute("aria-hidden","true");
+    searchResults.innerHTML = "";
+    searchInput.value = "";
+  });
+
+  /* search input handler (match name, category, description, tags) */
+  searchInput.addEventListener("input", function(){
+    const q = (this.value || "").trim().toLowerCase();
+    if(q === ""){
+      showDefaultProducts();
+      return;
+    }
+    const results = allProducts.filter(p => {
+      return (p.name || "").toLowerCase().includes(q)
+        || (p.category || "").toLowerCase().includes(q)
+        || (p.description || "").toLowerCase().includes(q)
+        || (p.tags || []).join(" ").toLowerCase().includes(q);
+    });
+    renderProducts(results);
+  });
+
+  /* -------------------------
+     Navigation buttons
+     ------------------------- */
+  accountBtn.addEventListener("click", ()=> { window.location.href = "admin.html"; });
+  cartBtn.addEventListener("click", ()=> { window.location.href = "Cart.html"; });
+
+  /* Expose updateBadge so other pages can call window.updateBadge() after adding */
+  window.updateCartBadge = updateBadge;
+
+})();
+
+
+
+
+
+
+
+
+    <!-- ✅ Animation Script -->
+  const animatedSections = document.querySelectorAll('.animate-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  animatedSections.forEach(section => observer.observe(section));
+
+
+
+
+              /*for FAQ's*/
+        
+function toggleSection(id, header) {
+    const content = document.getElementById(id);
+    const icon = header.querySelector('.toggle');
+
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+    } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+    }
+}
+</script>
+
+</body>
+</html>
