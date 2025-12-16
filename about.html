@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About EbRo-Shop</title>
+
+  <style>
+    /* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff}
+
+/* HEADER */
+.header{
+  background:#136835;
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  color:#fff;
+}
+.left,.right{display:flex;align-items:center;gap:18px}
+.icon-btn{cursor:pointer;display:flex;align-items:center}
+.icon-btn svg{
+  width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;
+}
+
+/* CART BADGE */
+.cart{position:relative;}
+.badge{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#fff;
+  color:#136835;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:bold;
+  display:none;
+}
+
+/* LOGO */
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-circle{
+  width:42px;height:42px;background:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;padding:5px;
+}
+.logo-text .main{font-size:20px;font-weight:bold}
+.logo-text .sub{font-size:10px;margin-top:2px;text-transform:uppercase}
+
+/* OVERLAY */
+#menuOverlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.42);
+  display:none;z-index:9;
+}
+
+/* SIDE MENU (SLIDE DRAWER) */
+#sideMenu{
+  position:fixed;
+  top:0;
+  left:-320px;
+  width:320px;
+  height:100%;
+  background:#fafafa;
+  box-shadow:3px 0 8px rgba(0,0,0,0.2);
+  z-index:10;
+  transition:left .28s ease;
+  padding:20px 22px;
+  overflow-y:auto;
+}
+
+/* MENU SECTIONS */
+.menu-title{
+  color:#999;
+  font-size:14px;
+  margin:18px 0 6px;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  font-size:16px;
+  color:#000;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+.menu-item svg{
+  width:22px;height:22px;stroke:#000;fill:none;stroke-width:1.7;
+}
+
+/* LOGIN ROW */
+.login-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0 20px;
+  border-bottom:1px solid #ddd;
+}
+.login-row .user-icon{
+  width:46px;height:46px;border-radius:50%;background:#eee;
+  display:flex;align-items:center;justify-content:center;
+}
+.login-row .user-icon svg{width:28px;height:28px;stroke:#777}
+
+/* CLOSE BUTTON */
+.close-btn{
+  font-size:26px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+
+/* for text header */
+@keyframes ticker-scroll{
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+@media (max-width:520px){
+  .ticker-track{font-size:14px}
+}
+
+/* -------------------------
+   SEARCH PANEL STYLES
+   ------------------------- */
+#searchPanel {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#fff;
+  z-index:9999;
+  display:none;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.search-top {
+  padding:12px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid #eee;
+}
+
+.search-top input {
+  flex:1;
+  padding:12px;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.search-close-btn {
+  padding:10px 14px;
+  background:#136835;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* product card design (matches your screenshot) */
+.products-wrap { padding:14px; }
+.products-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:space-between;
+}
+
+.product-card {
+    width: 48%;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.07);
+    padding-bottom:8px;
+    overflow:hidden;
+}
+
+.product-card img {
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
+.product-name {
+  padding:10px;
+    font-size:16px;
+    font-weight:600;
+}
+.product-price {
+    padding:0 10px;
+    font-size:16px;
+    font-weight:bold;
+    color:#111;
+}
+.add-btn {
+    margin:12px 10px 16px 10px;
+    width:calc(100% - 20px);
+    padding:10px 0;
+    background:#008cff;
+    color:#fff;
+    border:none;
+    font-size:15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* small responsiveness */
+@media (max-width:520px){
+  .product-card{width:100%}
+  .logo-text .main{font-size:16px}
+}
+
+
+    
+    
+
+
+  
+  
+  /*about page*/
+    /* MAIN CARD */
+    .card {
+     
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* Animate text sections */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 2s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Headings and text */
+    h1.hero {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    h2.section {
+      margin: 28px 0 12px 0;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    p.lead {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    ul.checklist {
+      padding-left: 20px;
+      margin: 8px 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .stat {
+      background: #f5f8fa;
+      padding: 22px 18px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: inset 0 1px rgba(0,0,0,0.02);
+    }
+
+    .stat .num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .muted-block {
+      background: #f7fbfa;
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<!-- TOP TICKER -->
+<div style=" background:#136835; --white:#ffffff; --muted-white:rgba(255,255,255,0.95);">
+  <div style="font-family: Helvetica Neue, Arial, sans-serif; background:#fff;">
+    <header style="background:#136835; color:var(--white); width:100%; box-shadow: 0 1px 0 rgba(0,0,0,0.08);" class="site-header" role="banner">
+      <div style="overflow:hidden; border-top:1px solid rgba(255,255,255,0.06);" class="ticker-wrap" aria-hidden="false">
+        <div style="display:block; width:100%; padding:10px 0;" class="ticker" role="marquee">
+          <div style="display:inline-block; white-space:nowrap; will-change:transform; font-weight:600; font-size:16px; color:var(--muted-white); animation: ticker-scroll 10s linear infinite;" class="ticker-track">
+            <span style="display:inline-block; padding-right:60px;">Fast delivery all over Addis Abeba. Order Now.</span>
+            <span style="display:inline-block; padding-right:60px;">ወዳሉበት በፍጥነት ወዳሉበት እናደርሳለን. አሁኑኑ ይዘዙን</span>
+            <span style="padding-left:40px;">Fast delivery all over Addis Abeba. Order Now.</span>
+            <span style="padding-left:40px;">ወዳሉበት በፍጥነት ወዳሉበት እናደርሳለን. አሁኑኑ ይዘዙን.</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<!-- MAIN HEADER -->
+<div  class="header">
+  <div class="left">
+    <div class="icon-btn" id="hamburgerBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </div>
+
+    <div class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4-4"/></svg>
+    </div>
+  </div>
+
+  <div class="logo-area">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:inherit">
+      <div class="logo-circle" title="EbRoShop">
+        <svg viewBox="0 0 64 64" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 4c10 4 10 16 0 20c-4-6-6-14 0-20z" fill="#3fbf4c"/>
+          <path d="M20 32a14 14 0 1128 0c0 10-8 14-14 14s-14-4-14-14h20" stroke="#3fbf4c" stroke-width="6" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text" style="margin-left:8px;">
+        <div class="main">EbRoShop.com</div>
+        <div class="sub">by Ebro Gurage Tone</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="right">
+    <div class="icon-btn" id="accountBtn" aria-label="Account">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/>
+      </svg>
+    </div>
+
+    <div class="cart icon-btn" id="cartBtn" aria-label="Cart">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 3h2l3 12h10l3-8H6"/>
+        <circle cx="9" cy="20" r="1"/>
+        <circle cx="18" cy="20" r="1"/>
+      </svg>
+      <div class="badge" id="cartBadge">0</div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY + SIDE MENU -->
+<div id="menuOverlay" aria-hidden="true"></div>
+
+<div id="sideMenu" aria-hidden="true">
+  <span class="close-btn" id="closeMenu">✖️</span>
+
+  <div class="login-row">
+    <div class="user-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/></svg>
+    </div>
+    <div style="font-size:18px;">Login or register</div>
+  </div>
+
+  <div class="menu-item">Competitions</div>
+  <div class="menu-item">Teams</div>
+  <div class="menu-item">Players</div>
+  <div class="menu-item">Transfers</div>
+  <div class="menu-item">Find match</div>
+  <div class="menu-item">Televised</div>
+  <div class="menu-title">More</div>
+  <div class="menu-item">Remove ads</div>
+  <div class="menu-item">Settings</div>
+  <div class="menu-item">About us</div>
+  <div class="menu-item">Report incidence</div>
+  <div class="menu-item">Beta tester</div>
+</div>
+
+<!-- SEARCH PANEL -->
+<div id="searchPanel" aria-hidden="true">
+  <div class="search-top">
+    <input id="searchInput" type="text" placeholder="Search products..." aria-label="Search products">
+    <button class="search-close-btn" id="closeSearch">Close</button>
+  </div>
+
+  <div class="products-wrap">
+    <div id="searchResults" class="products-grid">
+      <!-- products will render here -->
+    </div>
+  </div>
+</div>
+  
+
+
+
+   <div style=" --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: Helvetica Neue, Arial, sans-serif;">
+   <div style="    margin: 0;
+      color: #222;
+      background: #fff;">
+
+  <main  style=" width: 100%;
+      max-width: 300px; /*before it's 720*/
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(12, 24, 20, 0.03);
+      margin: 50px auto;" class="card">
+    <h1 style="text-align: center;color: var(--accent); font-family: 'Times New Roman', Times, serif;" class="hero animate-on-scroll"><b>🎙</b>About us</h1>
+
+    <div class="animate-on-scroll">
+      <h2 style="font-size: 20px;" class="section">Our Mission</h2>
+      <p class="lead">At <strong style="color:var(--accent) ;">Ebro-Shop</strong>, our mission is to make online shopping in Ethiopia simple, secure, and affordable. We provide a seamless digital marketplace that connects customers with high-quality products at unbeatable prices. Whether you’re looking for electronics, fashion, home essentials, or personal care products, we’re committed to ensuring a smooth and enjoyable shopping experience every time.</p>
+    </div>
+
+    <div class="animate-on-scroll">
+        <h2 style="font-size: 20px;"  class="section">What We Offer</h2>
+      <ul class="checklist">
+        <li><strong style="color:var(--accent) ;">Wide Product Range:</strong> From daily essentials to exclusive deals. Ebro‑Shop offers thousands of products across multiple categories.</li>
+        <li><strong style="color:var(--accent) ;">Trusted Quality:</strong> Every product is carefully reviewed to meet our strict quality standards..</li>
+        <li><strong style="color:var(--accent) ;">Fast Delivery:</strong> Reliable delivery service that gets your order to your doorstep quickly and safely.</li>
+        <li><strong style="color:var(--accent) ;">Secure Payments:</strong> Multiple secure payment options including Cash, bank transfers and Telebirr transfers.</li>
+        <li><strong style="color:var(--accent) ;">Customer Support:</strong> Our dedicated support team is help you with your orders and inquiries.</li>
+      </ul>
+    </div>
+
+    <div class="animate-on-scroll">
+      <h2 style="font-size: 20px;"  class="section">Our Story</h2>
+      <p class="lead">Ebro‑Shop started with a simple idea — to bring convenience and trust to online shopping in Ethiopia. What began as a small local e‑commerce project quickly grew into one of the most loved digital marketplaces. We’ve helped thousands of customers find what they need with confidence, transparency, and affordability.</p>
+      <p class="lead">Every product we add and every partnership we form is guided by our mission to make quality products accessible to everyone, everywhere in the country.</p>
+
+    </div>
+
+    <div class="animate-on-scroll">
+      <h2 style="font-size: 20px;"  class="section">Our Vision</h2>
+      <p class="lead">To be Ethiopia’s most trusted online marketplace — empowering people to shop smarter, live better, and connect with a modern digital economy.</p>
+       </div>
+
+    <aside class="animate-on-scroll">
+      <h2 style="font-size: 20px;"  class="section">Our Impact</h2>
+      <div class="stat">
+        <div class="num">1,000+</div>
+        <div class="label">Products Available</div>
+      </div>
+      <div class="stat">
+        <div class="num">500+</div>
+        <div class="label">Happy Customers</div>
+      </div>
+      <div class="stat">
+        <div class="num">5+</div>
+        <div class="label">Partner Brands</div>
+      </div>
+    </aside>
+
+    <div class="animate-on-scroll">
+ <h2 style="font-size: 20px;"  class="section">Our Values</h2>
+        <div class="values">
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Customers First</h3>
+            <p>We always prioritize customer satisfaction above all else.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Integrity</h3>
+            <p>Honesty and transparency guide every transaction and partnership.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Innovation</h3>
+            <p>We continuously improve our platform and services to meet evolving customer needs.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Community</h3>
+            <p>We support local businesses and promote digital transformation within Ethiopia.</p>
+          </div>
+        </div>
+   </div>
+   <br>
+    <div class="animate-on-scroll">
+      <h2 style="font-size: 20px;"  class="section">Contact Information</h2>
+      <div class="muted-block">
+        For inquiries or support, please contact us via our 
+        <a href="./Contact.html" style="color:var(--accent);font-weight:700;text-decoration:underline">Contact Us page</a>.
+      </div>
+    </div>
+  </main>
+   </div>
+
+
+<!--For bottom nav-->
+
+<div style=" padding-bottom: calc(72px + env(safe-area-inset-bottom));">
+
+    <nav style="  position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9999;" class="bottom-nav">
+
+  <a href="index.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;" class="nav-item active">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;" viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <path d="M3 10.5L12 3l9 7.5"/>
+      <path d="M5 10v10h14V10"/>
+    </svg>
+    Home
+  </a>
+
+  <a href="search.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    Search
+  </a>
+  <div class="icon-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4-4"/></svg>
+    </div>
+
+  <a href="collection.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <rect x="3" y="3" width="7" height="7"/>
+      <rect x="14" y="3" width="7" height="7"/>
+      <rect x="3" y="14" width="7" height="7"/>
+      <rect x="14" y="14" width="7" height="7"/>
+    </svg>
+    Collection
+  </a>
+
+  <a href="admin.html" style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  class="nav-item">
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+    </svg>
+    Account
+  </a>
+
+  <a  style="  flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;"  href="cart.html" class="nav-item cart">
+    <span style=" position: absolute;
+    top: 8px;
+    right: 28%;
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 50%;" class="badge">0</span>
+    <svg style=" width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+    stroke: #666;"  viewBox="0 0 24 24" fill="none" stroke-width="2">
+      <circle cx="9" cy="21" r="1"/>
+      <circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l3.6 12.6a2 2 0 0 0 2 1.4h9.4"/>
+      <path d="M7 6h15l-1.5 8H9"/>
+    </svg>
+    Cart
+  </a>
+
+</nav>
+</div>
+
+
+  <script>
+    /*header part*/
+/* -------------------------
+   Safe DOM ready wrapper
+   ------------------------- */
+(function(){
+  // product data (editable)
+  const defaultProducts = [
+    { id:1, name:"Rooti Slice Cad...", price:1.00, image:"https://via.placeholder.com/600x400?text=Rooti+Slice", category:"Bread", tags:["slice","white"], description:"Fresh sliced white bread." },
+    { id:2, name:"Rooti Qamadi...", price:1.00, image:"https://via.placeholder.com/600x400?text=Qamadi", category:"Bread", tags:["qamadi","brown"], description:"Soft brown qamadi bread." },
+    { id:3, name:"Rooti Beegar...", price:0.50, image:"https://via.placeholder.com/600x400?text=Beegar", category:"Bread", tags:["beegar","round"], description:"Round beegar bread." },
+    { id:4, name:"Ceesh (Arabic)", price:1.00, image:"https://via.placeholder.com/600x400?text=Ceesh", category:"Flatbread", tags:["arabic","ceesh"], description:"Arabic ceesh soft flatbread." }
+  ];
+  const extraProducts = [
+    { id:5, name:"Pasta Italian", price:1.20, image:"https://via.placeholder.com/600x400?text=Pasta", category:"Food", tags:["pasta","italy"], description:"Premium Italian pasta." },
+    { id:6, name:"Rice 5kg", price:5.00, image:"https://via.placeholder.com/600x400?text=Rice+5kg", category:"Rice", tags:["white","rice"], description:"High quality white rice." },
+    { id:7, name:"Egg Pack", price:3.00, image:"https://via.placeholder.com/600x400?text=Eggs", category:"Dairy", tags:["egg","protein"], description:"Fresh farm eggs." }
+  ];
+  const allProducts = [...defaultProducts, ...extraProducts];
+
+  // DOM elements
+  const hamburger = document.getElementById("hamburgerBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const closeMenu = document.getElementById("closeMenu");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchPanel = document.getElementById("searchPanel");
+  const closeSearch = document.getElementById("closeSearch");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  const cartBtn = document.getElementById("cartBtn");
+  const accountBtn = document.getElementById("accountBtn");
+  const badge = document.getElementById("cartBadge");
+
+  /* -------------------------
+     Cart helpers (persistent)
+     ------------------------- */
+  function loadCart(){
+    try{ return JSON.parse(localStorage.getItem("cartItems")) || []; } catch { return []; }
+  }
+  function saveCart(cart){
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+  }
+  function updateBadge(){
+    const cart = loadCart();
+    const total = cart.reduce((s,i)=> s + (i.qty||0), 0);
+    if(total > 0){
+      badge.style.display = "flex";
+      badge.innerText = total;
+    } else {
+      badge.style.display = "none";
+      badge.innerText = "0";
+    }
+    localStorage.setItem("cartCount", total);
+  }
+  // initialize badge on load
+  updateBadge();
+
+  /* -------------------------
+     Quick add function
+     ------------------------- */
+  window.quickAdd = function(id){
+    const product = allProducts.find(p => p.id == id);
+    if(!product){ alert("Product not found"); return; }
+    const cart = loadCart();
+    const existing = cart.find(it => it.id == product.id);
+    if(existing){
+      existing.qty = (existing.qty || 0) + 1;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        img: product.image,
+        price: parseFloat(product.price),
+        qty: 1
+      });
+    }
+    saveCart(cart);
+    updateBadge();
+    const short = product.name.length > 30 ? product.name.slice(0,28) + "…" : product.name;
+    alert(short + " added to cart");
+  };
+
+  /* -------------------------
+     Side menu handlers
+     ------------------------- */
+  function openMenu(){
+    sideMenu.style.left = "0";
+    menuOverlay.style.display = "block";
+    sideMenu.setAttribute("aria-hidden","false");
+  }
+  function closeMenuFn(){
+    sideMenu.style.left = "-320px";
+    menuOverlay.style.display = "none";
+    sideMenu.setAttribute("aria-hidden","true");
+  }
+  hamburger.addEventListener("click", openMenu);
+  menuOverlay.addEventListener("click", closeMenuFn);
+  closeMenu.addEventListener("click", closeMenuFn);
+
+  /* -------------------------
+     Search rendering
+     ------------------------- */
+  function escapeHtml(s){
+    return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderProducts(list){
+    if(!Array.isArray(list)) list = [];
+    if(list.length === 0){
+      searchResults.innerHTML = "<div style='padding:18px;color:#777'>No products found</div>";
+      return;
+    }
+    const html = list.map(p => {
+      return `
+        <div class="product-card" data-id="${p.id}">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}">
+          <div class="product-name">${escapeHtml(p.name)}</div>
+          <div class="product-price">${escapeHtml(Number(p.price).toFixed(2))} birr</div>
+          <button class="add-btn" onclick="quickAdd(${p.id})">Quick Add</button>
+        </div>
+      `;
+    }).join("");
+    searchResults.innerHTML = "<div class='products-grid'>"+html+"</div>";
+  }
+
+  function showDefaultProducts(){
+    renderProducts(defaultProducts);
+  }
+
+  /* open/close search */
+  searchBtn.addEventListener("click", function(){
+    searchPanel.style.display = "block";
+    searchPanel.setAttribute("aria-hidden","false");
+    searchInput.value = "";
+    showDefaultProducts();
+    setTimeout(()=> searchInput.focus(), 120);
+  });
+  closeSearch.addEventListener("click", function(){
+    searchPanel.style.display = "none";
+    searchPanel.setAttribute("aria-hidden","true");
+    searchResults.innerHTML = "";
+    searchInput.value = "";
+  });
+
+  /* search input handler (match name, category, description, tags) */
+  searchInput.addEventListener("input", function(){
+    const q = (this.value || "").trim().toLowerCase();
+    if(q === ""){
+      showDefaultProducts();
+      return;
+    }
+    const results = allProducts.filter(p => {
+      return (p.name || "").toLowerCase().includes(q)
+        || (p.category || "").toLowerCase().includes(q)
+        || (p.description || "").toLowerCase().includes(q)
+        || (p.tags || []).join(" ").toLowerCase().includes(q);
+    });
+    renderProducts(results);
+  });
+
+  /* -------------------------
+     Navigation buttons
+     ------------------------- */
+  accountBtn.addEventListener("click", ()=> { window.location.href = "admin.html"; });
+  cartBtn.addEventListener("click", ()=> { window.location.href = "Cart.html"; });
+
+  /* Expose updateBadge so other pages can call window.updateBadge() after adding */
+  window.updateCartBadge = updateBadge;
+
+})();
+
+
+
+
+
+    //about part Animate only when visible on scroll
+    const items = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    items.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
