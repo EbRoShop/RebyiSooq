@@ -46,6 +46,53 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   font-weight:bold;
   display:none;
 }
+/* EbRo logo – fully isolated */
+.ebro-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Circle like icon */
+.ebro-logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Image behaves like icon */
+.ebro-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+/* Text area */
+.ebro-logo-text {
+  margin-left: 8px;
+}
+
+/* Main text */
+.ebro-logo-main {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Sub text */
+.ebro-logo-sub {
+  font-size: 11px;
+  color: #ffffff;
+}
+
+
+
 
 /* LOGO */
 .logo-area{display:flex;align-items:center;gap:10px}
@@ -54,7 +101,8 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   display:flex;align-items:center;justify-content:center;padding:5px;
 }
 .logo-text .main{font-size:20px;font-weight:bold}
-.logo-text .sub{font-size:10px;margin-top:2px;text-transform:uppercase}
+.logo-text .sub{font-size:10px;margin-top:2px;text-transform:capitalize;}
+
 
 /* OVERLAY */
 #menuOverlay{
@@ -440,20 +488,22 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     </div>
   </div>
 
-  <div class="logo-area">
-    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:inherit">
-      <div class="logo-circle" title="EbRoShop">
-        <svg viewBox="0 0 64 64" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
-          <path d="M40 4c10 4 10 16 0 20c-4-6-6-14 0-20z" fill="#3fbf4c"/>
-          <path d="M20 32a14 14 0 1128 0c0 10-8 14-14 14s-14-4-14-14h20" stroke="#3fbf4c" stroke-width="6" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="logo-text" style="margin-left:8px;">
-        <div class="main">EbRoShop.com</div>
-        <div class="sub">by Ebro Gurage Tone</div>
-      </div>
-    </a>
-  </div>
+<div class="logo-area">
+  <a href="index.html" class="ebro-logo-link">
+    
+    <div class="ebro-logo-circle" title="EbRoShop">
+      <img src="EbroLogo.jpg" alt="EbRoShop Logo" class="ebro-logo-img">
+    </div>
+
+    <div class="ebro-logo-text">
+      <div class="ebro-logo-main">EbRoShop.com</div>
+      <div class="ebro-logo-sub">by Ebro Gurage Tone</div>
+    </div>
+
+  </a>
+</div>
+
+
 
   <div class="right">
     <div class="icon-btn" id="accountBtn" aria-label="Account">
@@ -482,14 +532,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   <span class="close-btn" id="closeMenu">✖️</span>
 
   <!-- Login -->
-  <a href="login.html" class="login-row">
+  <a href="signin.html" class="login-row">
     <div class="user-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 12a4 4 0 100-8 4 4 0 000 8z"/>
         <path d="M4 20a8 8 0 0116 0"/>
       </svg>
     </div>
-    <div style="font-size:18px;">Login or Register</div>
+    <div style="font-size:18px;">Signin or Register</div>
   </a>
 
   <!-- Main Links -->
@@ -2250,7 +2300,7 @@ document.querySelectorAll(".add-to-cart-button").forEach(btn => {
   /* -------------------------
      Navigation buttons
      ------------------------- */
-  accountBtn.addEventListener("click", ()=> { window.location.href = "admin.html"; });
+  accountBtn.addEventListener("click", ()=> { window.location.href = "login.html"; });
   cartBtn.addEventListener("click", ()=> { window.location.href = "Cart.html"; });
 
   /* Expose updateBadge so other pages can call window.updateBadge() after adding */
