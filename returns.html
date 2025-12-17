@@ -277,6 +277,24 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
 
 
 
+/*for return page*/
+.section-item {
+  background:#fff;
+  padding:20px;
+  margin-top:20px;
+  border-radius:6px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  transform: translateY(15px);
+  opacity: 0.7;
+  transition: transform 4s ease, opacity 4s ease;
+}
+.section-item.active {
+  transform: translateY(100);
+  opacity: 1;
+}
+
+
+
         /*for FAQ's*/
         .links a:hover {
     color: #000;
@@ -522,11 +540,17 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
 
 
 
-<div style="max-width:330px;margin:auto;font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:#222;">
+
+<div style="max-width:330px;margin:auto;font-family:Arial,Helvetica,sans-serif;line-height:1.6; color: #222;">
 
   <!-- SECTION: RETURN POLICY -->
   <section style="margin-bottom:30px;">
     <h2 style="margin-bottom:10px; text-align: center; color: #17619e;">Return policy</h2>
+
+
+       <div class="section-item" style="background:#fff;padding:20px;margin-top:0px;border-radius:6px;
+     box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:all 0.5s ease;transform:translateY(15px);opacity:0.7;">
+
    <h3 style="font-size:17px;margin-bottom:12px; color: #17619e;">Overview</h3>
     <p style="font-family: 'Times New Roman', Times, serif;">
       We have a 3-day return policy, which means you have 3 days after receiving your item to request a return.
@@ -548,18 +572,26 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
         <strong>orders@ebroshop.com</strong>
       </span>
     </p>
+    </div>
   </section>
 
   <!-- SECTION: DAMAGES AND ISSUES -->
   <section style="margin-bottom:30px;">
+    <div class="section-item" style="background:#fff;padding:20px;margin-top:0px;border-radius:6px;
+     box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:all 0.5s ease;transform:translateY(15px);opacity:0.7;">
+
     <h3 style="color: #17619e;">Damages and issues</h3>
     <p style="font-family: 'Times New Roman', Times, serif;">
       Please inspect your order upon reception and contact us immediately if the item is defective, damaged or if you receive the wrong item so that we can evaluate the issue and make it right.
     </p>
+    </div>
   </section>
 
   <!-- SECTION: EXCEPTIONS -->
   <section style="margin-bottom:30px;">
+        <div class="section-item" style="background:#fff;padding:20px;margin-top:20px;border-radius:6px;
+     box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:all 0.5s ease;transform:translateY(15px);opacity:0.7;">
+
     <h3 style="color: #17619e;">Exceptions / non-returnable items</h3>
     <p style="font-family: 'Times New Roman', Times, serif;">
       Certain types of items cannot be returned, like perishable goods (such as food, flowers, or plants), custom products (such as special orders or personalized items), and personal care goods (such as beauty products). We also do not accept returns for hazardous materials, flammable liquids, or gases. Please get in touch if you have questions or concerns about your specific item.
@@ -567,24 +599,35 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
     <p style="font-family: 'Times New Roman', Times, serif;">
       Unfortunately, we cannot accept returns on sale items or gift cards.
     </p>
+  </div>
   </section>
 
   <!-- SECTION: EXCHANGES -->
   <section style="margin-bottom:30px;">
+        <div class="section-item" style="background:#fff;padding:20px;margin-top:20px;border-radius:6px;
+     box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:all 0.5s ease;transform:translateY(15px);opacity:0.7;">
+
     <h3 style="color: #17619e;">Exchanges</h3>
     <p style="font-family: 'Times New Roman', Times, serif;">
       The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, make a separate purchase for the new item.
     </p>
+    </div>
   </section>
 
   <!-- SECTION: REFUNDS -->
   <section>
+        <div class="section-item" style="background:#fff;padding:20px;margin-top:20px;border-radius:6px;
+     box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:all 0.5s ease;transform:translateY(15px);opacity:0.7;">
+
     <h3 style="color: #17619e;">Refunds</h3>
     <p style="font-family: 'Times New Roman', Times, serif;">
       We will notify you once we’ve received and inspected your return, and let you know if the refund was approved or not. If approved, you’ll be refunded on your original payment method within 3-5 working days, unless you paid by cash on delivery. If you paid by cash on delivery we will issue a refund to your Ebroshop store credit or transfer the credits to your bank account.
     </p>
+</div>
   </section>
 </div>
+
+
 
 
 <img src="./Ebroshop.jpg" width="400px" height="150px"/>
