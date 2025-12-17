@@ -1,0 +1,177 @@
+Sign in page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #333;
+}
+
+/* Page container */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.breadcrumb span {
+    color: #000;
+}
+
+/* Headings */
+h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Text */
+p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Form sections */
+.form-section {
+    margin-bottom: 60px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+label span {
+    color: red;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 25px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border: 2px solid #1aa3d9;
+    background: #fff;
+    color: #1aa3d9;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1aa3d9;
+    color: #fff;
+}
+
+/* Sign in row */
+.signin-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.signin-row a {
+    color: #1aa3d9;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .signin-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        Home &nbsp;›&nbsp; <span>Account</span>
+    </div>
+
+    <!-- SIGN IN -->
+    <h1>SIGN IN</h1>
+
+    <div class="form-section">
+        <h2>Login</h2>
+        <p>Please enter your email and password below to access your account</p>
+
+        <form action="login.php" method="POST">
+            <label>Email Address <span>*</span></label>
+            <input type="email" name="email" placeholder="Enter E-mail" required>
+
+            <label>Password <span>*</span></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+
+            <div class="signin-row">
+                <button type="submit" class="btn">SIGN IN</button>
+                <a href="#">Lost your password?</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="form-section">
+        <h2>Register</h2>
+        <p>Please register below to create an account</p>
+
+        <form action="signup.php" method="POST">
+            <label>First Name <span>*</span></label>
+            <input type="text" name="first_name" placeholder="Enter First Name" required>
+
+            <label>Last Name <span>*</span></label>
+            <input type="text" name="last_name" placeholder="Enter Last Name" required>
+
+            <label>Your Email Address <span>*</span></label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+
+            <label>Your Password <span>*</span></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+
+            <button type="submit" class="btn">CREATE AN ACCOUNT</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
