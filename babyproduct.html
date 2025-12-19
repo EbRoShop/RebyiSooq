@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <title>Baby Product</title>
+  <title>Baby Products</title>
 
   <style>
 /*header*/
@@ -888,12 +888,16 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
       </button>
     </div>
 
-    <select id="sort">
-      <option value="az">Alphabet A–Z</option>
-      <option value="za">Alphabet Z–A</option>
-      <option value="priceLow">Price Low → High</option>
-      <option value="priceHigh">Price High → Low</option>
-    </select>
+   
+<select id="sort">
+  <option value="default" selected>Default</option>
+  <option value="az">Alphabet A–Z</option>
+  <option value="za">Alphabet Z–A</option>
+  <option value="priceLow">Price Low → High</option>
+  <option value="priceHigh">Price High → Low</option>
+</select>
+
+
   </div>
 
   <!-- Products -->
@@ -1630,28 +1634,40 @@ function addToCart(e, name, price, image){
       oneCol.classList.remove('active');
     };
 
-    // Sorting
-    document.getElementById('sort').onchange = function () {
-      const items = [...productsEl.children];
-      let sorted;
+   
 
-      switch (this.value) {
-        case 'az':
-          sorted = items.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
-          break;
-        case 'za':
-          sorted = items.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
-          break;
-        case 'priceLow':
-          sorted = items.sort((a, b) => a.dataset.price - b.dataset.price);
-          break;
-        case 'priceHigh':
-          sorted = items.sort((a, b) => b.dataset.price - a.dataset.price);
-          break;
-      }
 
-      sorted.forEach(el => productsEl.appendChild(el));
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const productsEl = document.getElementById('products');
+  const itemsOriginal = [...productsEl.children]; // Save original order
+
+  document.getElementById('sort').onchange = function () {
+    let sorted;
+
+    switch (this.value) {
+      case 'az':
+        sorted = [...itemsOriginal].sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+        break;
+      case 'za':
+        sorted = [...itemsOriginal].sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+        break;
+      case 'priceLow':
+        sorted = [...itemsOriginal].sort((a, b) => a.dataset.price - b.dataset.price);
+        break;
+      case 'priceHigh':
+        sorted = [...itemsOriginal].sort((a, b) => b.dataset.price - a.dataset.price);
+        break;
+      default:
+        sorted = itemsOriginal; // Default order
+        break;
+    }
+
+    sorted.forEach(el => productsEl.appendChild(el));
+  };
+});
+
+
+
 
     // Quick add → add to cart + redirect
 function addToCart(e, btn) {
