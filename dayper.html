@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dairy – Product Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Daypers</title>
 
   <style>
 /*header*/
@@ -392,6 +393,77 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
       text-decoration: none;
       font-weight: bold;
     }
+
+
+
+        /*for FAQ's*/
+        .links a:hover {
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*For last footer*/
+.payment-logos a:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .footer-text {
+        font-size: 20px;
+    }
+
+    .payment-logos a img {
+        height: 34px;
+    }
+}
+
+
+/*for bottom nav*/
+  .nav-item.active {
+    color: #000;
+  }
+
+  .nav-item.active svg {
+    stroke: #000;
+  }
+
+  .cart {
+    position: relative;
+  }
+
+
+
+
+    /*For No more product*/
+    .no-more-product {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0; /* Adjust vertical spacing to match your screen height */
+  
+  /* Borders */
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  
+  
+  /* Typography */
+  color: #808080;
+  font-family: 'Arial', sans-serif; /* A clean sans-serif matches the image */
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  
+  /* Background */
+  background-color: #ffffff;
+}
   </style>
 </head>
 <body>
@@ -428,7 +500,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   </div>
 
  <div class="logo-area">
-  <a href="Dayper.html" class="ebro-logo-link">
+  <a href="babyproduct.html" class="ebro-logo-link">
     
     <div class="ebro-logo-circle" title="EbRoShop">
       <img src="https://res.cloudinary.com/die8hxris/image/upload/v1765983404/j5tztu0kuzdspwmk3zfg.jpg" alt="EbRoShop Logo" class="ebro-logo-img">
@@ -789,11 +861,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     
-    <a href="index.html"><b style="font-size: medium;">Home</b></a> &gt; <b style="color: #8d8888;">Dairy
+    <a href="index.html"><b style="font-size: medium;">Home</b></a> &gt; <b style="color: #8d8888;">Daypers
   </div>
 
   <!-- Title -->
-  <div style="text-align: center; margin-top: 0px; color: #185282;" class="page-title">DAIRY</div>
+  <div style="text-align: center; margin-top: 0px; color: #185282;" class="page-title">Daypers and Wipes</div>
 
   <!-- Controls -->
   <div class="controls">
@@ -816,42 +888,29 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
       </button>
     </div>
 
-    <select id="sort">
-      <option value="az">Alphabet A–Z</option>
-      <option value="za">Alphabet Z–A</option>
-      <option value="priceLow">Price Low → High</option>
-      <option value="priceHigh">Price High → Low</option>
-    </select>
+   
+<select id="sort">
+  <option value="default" selected>Default</option>
+  <option value="az">Alphabet A–Z</option>
+  <option value="za">Alphabet Z–A</option>
+  <option value="priceLow">Price Low → High</option>
+  <option value="priceHigh">Price High → Low</option>
+</select>
+
+
   </div>
 
   <!-- Products -->
   <div class="products" id="products">
-   <div class="product"
-     data-id="1"
-     data-name="Almarai Full Fat"
-     data-price="18">
+<div class="product"
+     data-id="66"
+     data-name="GoodBaby Dayper 1 ቁጥር"
+     data-price="650">
 
-  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766038304/mzrwavgcf09vh0rtycze.jpg">
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766255943/kvwbgyn5qw3uguiqpxg8.jpg">
 
-  <h3>Almarai Full Fat</h3>
-  <p>18 Birr</p>
-
-  <a href="Cart.html"
-     class="btn"
-     onclick="addToCart(event, this)">
-     Quick Add
-  </a>
-</div>
-
-   <div class="product"
-     data-id="2"
-     data-name="Almarai Low Fat"
-     data-price="16">
-
-  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766041417/o0naa6476jcshxvzvuoc.jpg">
-
-  <h3>Almarai Low Fat</h3>
-  <p>16 Birr</p>
+  <h3 style="color:#111">GoodBaby Dayper 1 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
 
   <a href="Cart.html"
      class="btn"
@@ -860,7 +919,729 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   </a>
 </div>
 
-  </div>
+<div class="product"
+     data-id="67"
+     data-name="GoodBaby Dayper 2 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256605/tpvcjsmxmkgqjhyye3na.jpg">
+
+  <h3 style="color:#111">GoodBaby Dayper 2 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="68"
+     data-name="GoodBaby Dayper 3 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256657/jsnzat9kuekgz1d8lxgk.jpg">
+
+  <h3 style="color:#111">GoodBaby Dayper 3 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="69"
+     data-name="GoodBaby Dayper 4 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256686/hom2dmdkqlapoir7kbbq.jpg">
+
+  <h3 style="color:#111">GoodBaby Dayper 4 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="70"
+     data-name="GoodBaby Dayper 5 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256721/jrurgle4rrsk73wa4qcb.jpg">
+
+  <h3 style="color:#111">GoodBaby Dayper 5 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="71"
+     data-name="Abc Dayper 1 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256747/ld39g5hkz9lijz8srxu5.jpg">
+
+  <h3 style="color:#111">Abc Dayper 1 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="72"
+     data-name="Abc Dayper 2 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256798/alyfqawtkrpb58w0381t.jpg">
+
+  <h3 style="color:#111">Abc Dayper 2 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="73"
+     data-name="Abc Dayper 3 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256833/hmusvhktwd9wdxqlf1xp.jpg">
+
+  <h3 style="color:#111">Abc Dayper 3 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="74"
+     data-name="Abc Dayper 4 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256896/ufyitxjjc5vqmtqpdb8l.jpg">
+
+  <h3 style="color:#111">Abc Dayper 4 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="75"
+     data-name="Abc Dayper 5 ቁጥር"
+     data-price="650">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766256982/looka382q6ytmltjtiow.jpg">
+
+  <h3 style="color:#111">Abc Dayper 5 ቁጥር</h3>
+  <p>650ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="76"
+     data-name="Yes Dayper 2 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257052/bjfrbc7f4gkduzmgrmww.jpg">
+
+  <h3 style="color:#111">Yes Dayper 2 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="77"
+     data-name="Yes Dayper 3 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257098/ppn2ikortbjr2xxmjghz.jpg">
+
+  <h3 style="color:#111">Yes Dayper 3 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="78"
+     data-name="Yes Dayper 4 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257331/owsejr4xjb9qpmgcovcr.jpg">
+
+  <h3 style="color:#111">Yes Dayper 4 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="79"
+     data-name="Yes Dayper 5 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257201/rwwwveqoinqdo2q5tgjc.jpg">
+
+  <h3 style="color:#111">Yes Dayper 5 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="80"
+     data-name="B&B Dayper 2 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257372/ezdscwsws4i11yb2ezfj.jpg">
+
+  <h3 style="color:#111">B&B Dayper 2 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="81"
+     data-name="B&B Dayper 3 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257425/tcvbj2ezoypd0pjfemx5.jpg">
+
+  <h3 style="color:#111">B&B Dayper 3 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="82"
+     data-name="B&B Dayper 4 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257467/z5ijrttwlrdvrvoyi4f9.jpg">
+
+  <h3 style="color:#111">B&B Dayper 4 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="83"
+     data-name="B&B Dayper 5 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257605/ub1lntoayt7obhbvexwg.jpg">
+
+  <h3 style="color:#111">B&B Dayper 5 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="84"
+     data-name="Love Dayper 2 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766302925/inzz9pjinfdbpjy2jdab.jpg">
+
+  <h3 style="color:#111">Love Dayper 2 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="85"
+     data-name="Love Dayper 3 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766302952/sfu6d4ndnvn8vi8sfq3b.jpg">
+
+  <h3 style="color:#111">Love Dayper 3 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="86"
+     data-name="Love Dayper 4 ቁጥር"
+     data-price="600">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766302984/l5lnlfjjsqnydkvykzae.jpg">
+
+  <h3 style="color:#111">Love Dayper 4 ቁጥር</h3>
+  <p>600ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="87"
+     data-name="Goodbaby Dayper ትንሹ 2 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766257148/sanvfshuc92i48wr2kto.jpg">
+
+  <h3 style="color:#111">Goodbaby Dayper ትንሹ 2 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="88"
+     data-name="Goodbaby Dayper ትንሹ 3 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303011/a4kmkyqmnmvpcqb6fubr.jpg">
+
+  <h3 style="color:#111">Goodbaby Dayper ትንሹ 3 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="89"
+     data-name="Goodbaby Dayper ትንሹ 4 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303043/hrcr5kemmghsadgzqkrh.jpg">
+
+  <h3 style="color:#111">Goodbaby Dayper ትንሹ 4 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="90"
+     data-name="Abc Dayper ትንሹ 2 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303075/mljzthzac24zptvpziwf.jpg">
+
+  <h3 style="color:#111">Abc Dayper ትንሹ 2 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="91"
+     data-name="Abc Dayper ትንሹ 3 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303234/ygfwopfvfulg8hpp3nn0.jpg">
+
+  <h3 style="color:#111">Abc Dayper ትንሹ 3 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="92"
+     data-name="Abc Dayper ትንሹ 4 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303167/whuq6pltuajzrdt1pebq.jpg">
+
+  <h3 style="color:#111">Abc Dayper ትንሹ 4 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="93"
+     data-name="b&b Dayper ትንሹ 2 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303198/c2nzdcyk4yg5st3h2crg.jpg">
+
+  <h3 style="color:#111">b&b Dayper ትንሹ 2 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="94"
+     data-name="b&b Dayper ትንሹ 3 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303261/qtuz7fiijgr13kxxuoxi.jpg">
+
+  <h3 style="color:#111">b&b Dayper ትንሹ 3 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="95"
+     data-name="b&b Dayper ትንሹ 4 ቁጥር"
+     data-price="200">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766303291/t2aeiqdmbk64snymbkfl.jpg">
+
+  <h3 style="color:#111">b&b Dayper ትንሹ 4 ቁጥር</h3>
+  <p>200ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="96"
+     data-name="Goodbaby Wipes"
+     data-price="120">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766305824/haq4zp71ec5hdl9uexrk.jpg">
+
+  <h3 style="color:#111">Goodbaby Wipes</h3>
+  <p>120ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="97"
+     data-name="B&B Wipes"
+     data-price="120">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766305882/ajxw7gqpxqsgvphuhzvf.jpg">
+
+  <h3 style="color:#111">B&B Wipes</h3>
+  <p>120ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+<div class="product"
+     data-id="98"
+     data-name="Abc Wipes"
+     data-price="120">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1766305851/uodvcqiuj2mzmfdsuzim.jpg">
+
+  <h3 style="color:#111">Abc Wipes</h3>
+  <p>120ETB/Pcs</p>
+
+  <a href="Cart.html"
+     class="btn"
+     onclick="addToCart(event, this)">
+     Quick Add
+  </a>
+</div>
+
+</div>
+  <div class="no-more-product">
+  NO MORE PRODUCT
+</div>
+    
+
+
+
+<img src="https://res.cloudinary.com/die8hxris/image/upload/v1765983301/wwa0hvys9hynad7fju9u.jpg" width="400px" height="150px"/>
+<!--FAQ's-->
+ <div style="   margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #222;">
+
+<div style="  padding: 20px;" class="footer">
+
+    <h2 style="    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;">CONNECT WITH US</h2>
+
+    <div style="    display: flex;
+    gap: 24px;
+    font-size: 32px;
+    margin-bottom: 24px;" class="social-icons">
+        <a style=" color: #222;
+    text-decoration: none;" href="https://www.facebook.com/profile.php?id=100083927815758"><i class="fab fa-facebook-f"></i></a>
+        <a style=" color: #222;
+    text-decoration: none;" href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Ebroshop Section (CLOSED by default) -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('adeeg', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">EbRoShop</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="adeeg">
+          <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="index.html">Home</a>
+
+          <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="about.html">About-us</a>
+           
+           <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="faq.html">FAQs</a>
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Store Policy -->
+    <div style="   border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('store', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Store Policy</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="store">
+           <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="terms.html">Terms Of Service</a>
+           
+           <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="privacy.html">Privacy Policy</a>
+         
+            <a style="  display: block;
+    text-decoration: none;
+    color: #9a9a9a;
+    font-size: 20px;
+    margin: 14px 0;" href="returns.html">Return Policy</a>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <div style=" border-top: 1px solid #ddd;
+    padding: 18px 0;" class="section">
+        <div style=" display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;" class="section-header" onclick="toggleSection('contact', this)">
+            <h3 style="  margin: 0;
+    font-size: 24px;
+    font-weight: 700;">Contact Us</h3>
+            <span style="  font-size: 26px;" class="toggle">+</span>
+        </div>
+
+        <div style="margin-top: 16px;" class="links hidden" id="contact">
+             <a style="  display: block;
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    margin: 14px 0;" >Phone: <b style="color: #676767;">+251970130755</b></a>
+           <a style="  display: block;
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    margin: 14px 0;" >Email: <b style="color: #676767;">ebrohayru77@gmail.com</b></a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+<!--Last footer-->
+
+<div style="  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;">
+<div style=" text-align: center;
+    padding: 40px 20px 30px;" class="footer-bottom">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+        <img style="  max-width: 160px;
+    margin-bottom: 24px;" src="https://res.cloudinary.com/die8hxris/image/upload/v1765983370/zz6tex5swhmvjff8aphf.jpg" alt="Ebroshop Logo">
+    </div>
+
+    <!-- Copyright -->
+    <div style="  color: #828080;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;" class="footer-text">
+        EbRoShop.Com©2025 All Rights Reserved
+    </div>
+
+    <!-- Payment / Partner Logos (Clickable) -->
+    <div style=" display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;" class="payment-logos">
+        <a href="tel:*889#" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="https://res.cloudinary.com/die8hxris/image/upload/v1765983122/fqldh9ima4wy9hrsjkhv.jpg" alt="CBE">
+        </a>
+
+        <a href="tel:*127#" target="_self">
+            <img style=" height: 40px;
+    object-fit: contain;
+    transition: transform 0.2s ease;" src="https://res.cloudinary.com/die8hxris/image/upload/v1765983555/e6oydnwyeoxag8vhar1w.jpg" alt="Telebirr">
+        </a>
+    </div>
+
+</div>
+</div>
 
 
   
@@ -1177,28 +1958,40 @@ function addToCart(e, name, price, image){
       oneCol.classList.remove('active');
     };
 
-    // Sorting
-    document.getElementById('sort').onchange = function () {
-      const items = [...productsEl.children];
-      let sorted;
+   
 
-      switch (this.value) {
-        case 'az':
-          sorted = items.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
-          break;
-        case 'za':
-          sorted = items.sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
-          break;
-        case 'priceLow':
-          sorted = items.sort((a, b) => a.dataset.price - b.dataset.price);
-          break;
-        case 'priceHigh':
-          sorted = items.sort((a, b) => b.dataset.price - a.dataset.price);
-          break;
-      }
 
-      sorted.forEach(el => productsEl.appendChild(el));
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const productsEl = document.getElementById('products');
+  const itemsOriginal = [...productsEl.children]; // Save original order
+
+  document.getElementById('sort').onchange = function () {
+    let sorted;
+
+    switch (this.value) {
+      case 'az':
+        sorted = [...itemsOriginal].sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+        break;
+      case 'za':
+        sorted = [...itemsOriginal].sort((a, b) => b.dataset.name.localeCompare(a.dataset.name));
+        break;
+      case 'priceLow':
+        sorted = [...itemsOriginal].sort((a, b) => a.dataset.price - b.dataset.price);
+        break;
+      case 'priceHigh':
+        sorted = [...itemsOriginal].sort((a, b) => b.dataset.price - a.dataset.price);
+        break;
+      default:
+        sorted = itemsOriginal; // Default order
+        break;
+    }
+
+    sorted.forEach(el => productsEl.appendChild(el));
+  };
+});
+
+
+
 
     // Quick add → add to cart + redirect
 function addToCart(e, btn) {
@@ -1230,6 +2023,22 @@ function addToCart(e, btn) {
   window.location.href = "Cart.html";
 }
 
+
+
+            /*for FAQ's*/
+        
+function toggleSection(id, header) {
+    const content = document.getElementById(id);
+    const icon = header.querySelector('.toggle');
+
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+    } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+    }
+}
   </script>
 
 </body>
