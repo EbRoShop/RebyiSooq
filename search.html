@@ -1,209 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Search</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search Overlay</title> 
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: Arial, sans-serif; }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111}
+        /* THE DARK BACKGROUND OVERLAY */
+        #searchWrapper {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5); /* This makes the old page visible but dark */
+            z-index: 9999;
+            display: flex;
+        }
 
-/* SEARCH PANEL */
-#searchPanel{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  z-index:9999;
-  overflow-y:auto;
-}
+        /* LEFT SIDE PANEL - Exact design from image */
+        #searchPanel {
+            width: 65%; /* Covers more than half as requested */
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease-out;
+        }
 
-.search-top{
-  display:flex;
-  gap:10px;
-  padding:14px;
-  border-bottom:1px solid #eee;
-}
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
 
-.search-top input{
-  flex:1;
-  padding:14px;
-  font-size:16px;
-  border:2px solid #111;
-  border-radius:14px;
-}
+        /* HEADER AS PER IMAGE */
+        .search-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 10px 20px;
+        }
+        .search-header h2 { font-size: 26px; font-weight: bold; color: #111; }
+        .close-btn { font-size: 28px; color: #333; text-decoration: none; cursor: pointer; padding: 5px; }
 
-.search-close-btn{
-  padding:12px 16px;
-  background:#136835;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
+        /* SEARCH BOX AS PER IMAGE */
+        .input-area { padding: 0 20px 15px 20px; }
+        .search-box-wrapper {
+            background: #f1f1f1; /* Light gray box */
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+        }
+        #searchInput {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 17px;
+            outline: none;
+            padding: 8px 0;
+        }
+        .search-icon { font-size: 18px; color: #000; margin-left: 10px; font-weight: bold; }
 
-/* PRODUCTS */
-.products-wrap{padding:14px}
-.products-grid{display:flex;flex-wrap:wrap;gap:14px}
+        /* RESULTS AREA */
+        .results-container { flex: 1; overflow-y: auto; padding: 10px 20px; }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .product-card img { width: 100%; height: 130px; object-fit: cover; }
+        .product-name { padding: 10px 10px 2px; font-size: 15px; font-weight: bold; }
+        .product-price { padding: 0 10px; font-size: 14px; color: #136835; font-weight: bold; }
+        
+        /* QUICK ADD BUTTON */
+        .quick-add-btn {
+            margin: 10px;
+            width: calc(100% - 20px);
+            padding: 10px;
+            background: #008cff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.product-card{
-  width:100%;
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-  overflow:hidden;
-}
+        .status-msg {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+            font-size: 16px;
+        }
 
-.product-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.product-name{
-  padding:12px 12px 6px;
-  font-size:18px;
-  font-weight:700;
-}
-
-.product-price{
-  padding:0 12px;
-  font-size:18px;
-  font-weight:800;
-}
-
-.add-btn{
-  margin:12px;
-  width:calc(100% - 24px);
-  padding:14px 0;
-  background:#008cff;
-  color:#fff;
-  border:none;
-  font-size:16px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.empty{
-  padding:30px;
-  text-align:center;
-  color:#777;
-}
-
-@media(min-width:520px){
-  .product-card{width:48%}
-}
-</style>
-</head>
-
+        /* Right side empty area - clicking here also closes search */
+        .outside-click-area { flex: 1; cursor: pointer; }
+    </style>
+</head> 
 <body>
 
-<div id="searchPanel">
-  <div class="search-top">
-    <input id="searchInput" type="text" placeholder="Search products...">
-    <a href="index.html">
-      <button class="search-close-btn">Close</button>
-    </a>
-  </div>
+<div id="searchWrapper">
+    <div id="searchPanel">
+        <div class="search-header">
+            <h2>Search</h2>
+            <a href="javascript:history.back()" class="close-btn">✕</a>
+        </div>
 
-  <div class="products-wrap">
-    <div id="searchResults" class="products-grid"></div>
-  </div>
+        <div class="input-area">
+            <div class="search-box-wrapper">
+                <input id="searchInput" type="text" placeholder="Write here your favorite items">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+        <div class="results-container">
+            <div id="searchResults">
+                <div class="status-msg">Start typing to find product</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="outside-click-area" onclick="history.back()"></div>
 </div>
 
 <script>
-/* ===============================
-   SEARCH + CART INTEGRATION
-   =============================== */
 (function(){
+    // Your Data
+    const products = [
+        { id:5, name:"Pasta Italian", price:1.20, image:"https://via.placeholder.com/400x300?text=Pasta", category:"Food" },
+        { id:6, name:"Rice 5kg", price:5.00, image:"https://via.placeholder.com/400x300?text=Rice", category:"Rice" },
+        { id:7, name:"Egg Pack", price:3.00, image:"https://via.placeholder.com/400x300?text=Eggs", category:"Dairy" }
+    ];
 
-/* PRODUCTS */
-const products = [
-  {id:1,name:"Rooti Slice Cad...",price:1,image:"https://via.placeholder.com/600x400?text=Slice",category:"Bread",tags:["slice"],description:"Slice bread"},
-  {id:2,name:"Rooti Qamadi...",price:1,image:"https://via.placeholder.com/600x400?text=Qamadi",category:"Bread",tags:["qamadi"],description:"Qamadi bread"},
-  {id:3,name:"Rooti Beegar...",price:0.5,image:"https://via.placeholder.com/600x400?text=Beegar",category:"Bread",tags:["beegar"],description:"Beegar bread"},
-  {id:4,name:"Ceesh (Arabic)",price:1,image:"https://via.placeholder.com/600x400?text=Ceesh",category:"Arabic",tags:["arabic"],description:"Arabic ceesh"},
-  {id:5,name:"Rice 5kg",price:5,image:"https://via.placeholder.com/600x400?text=Rice",category:"Rice",tags:["rice"],description:"White rice"},
-  {id:6,name:"Egg Pack",price:3,image:"https://via.placeholder.com/600x400?text=Eggs",category:"Egg",tags:["egg"],description:"Fresh eggs"}
-];
+    const CART_KEY = "cartItems";
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
 
-/* CART HELPERS (MATCH cart.html) */
-const CART_KEY = "cartItems";
+    function loadCart() { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+    function saveCart(cart) { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
 
-function loadCart(){
-  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-}
+    window.quickAdd = function(id) {
+        const product = products.find(p => p.id === id);
+        if(!product) return;
+        const cart = loadCart();
+        const existing = cart.find(i => i.id === id);
+        if(existing) { existing.qty += 1; } 
+        else { cart.push({ ...product, qty: 1 }); }
+        saveCart(cart);
+        window.location.href = "Cart.html";
+    };
 
-function saveCart(cart){
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
+    function render(list) {
+        if (list.length === 0) {
+            searchResults.innerHTML = '<div class="status-msg">No products found</div>';
+            return;
+        }
+        searchResults.innerHTML = list.map(p => `
+            <div class="product-card">
+                <img src="${p.image}">
+                <div class="product-name">${p.name}</div>
+                <div class="product-price">${p.price.toFixed(2)} birr</div>
+                <button class="quick-add-btn" onclick="quickAdd(${p.id})">Quick Add</button>
+            </div>
+       ` ).join("");
+    }
 
-/* ADD TO CART (WORKING) */
-window.quickAdd = function(id){
-  const product = products.find(p => p.id === id);
-  if(!product) return;
-
-  const cart = loadCart();
-  const existing = cart.find(i => i.id === id);
-
-  if(existing){
-    existing.qty += 1;
-  } else {
-    cart.push({
-      id: product.id,
-      name: product.name,
-      image: product.image,
-      price: product.price,
-      qty: 1
+    searchInput.addEventListener("input", () => {
+        const q = searchInput.value.toLowerCase().trim();
+        if (!q) {
+            searchResults.innerHTML = '<div class="status-msg">Start typing to find product</div>';
+            return;
+        }
+        const filtered = products.filter(p => p.name.toLowerCase().includes(q));
+        render(filtered);
     });
-  }
 
-  saveCart(cart);
-
-  // ✅ GO TO CART PAGE
-  window.location.href = "Cart.html";
-};
-
-
-/* RENDER PRODUCTS */
-const searchResults = document.getElementById("searchResults");
-
-function render(list){
-  if(!list.length){
-    searchResults.innerHTML = "<div class='empty'>No products found</div>";
-    return;
-  }
-
-  searchResults.innerHTML = list.map(p => `
-    <div class="product-card">
-      <img src="${p.image}">
-      <div class="product-name">${p.name}</div>
-      <div class="product-price">${p.price.toFixed(2)} birr</div>
-      <button class="add-btn" onclick="quickAdd(${p.id})">
-        Quick Add
-      </button>
-    </div>
-  `).join("");
-}
-
-/* SEARCH */
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", () => {
-  const q = searchInput.value.toLowerCase().trim();
-  if(!q){ render(products); return; }
-
-  render(products.filter(p =>
-    p.name.toLowerCase().includes(q) ||
-    p.category.toLowerCase().includes(q) ||
-    p.description.toLowerCase().includes(q) ||
-    p.tags.join(" ").toLowerCase().includes(q)
-  ));
-});
-
-/* INIT */
-render(products);
-setTimeout(()=>searchInput.focus(),100);
-
+    setTimeout(() => searchInput.focus(), 400);
 })();
 </script>
 
