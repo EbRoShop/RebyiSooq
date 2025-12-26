@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <title>Collections</title>
+  <title>Collection</title>
 
   <style>
 /*header*/
@@ -464,6 +464,13 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   /* Background */
   background-color: #ffffff;
 }
+
+
+/*For collection*/
+  .product a:hover {
+            background-color: #fff;
+            color: #000;
+        }
   </style>
 </head>
 <body>
@@ -864,102 +871,102 @@ body{font-family:Arial,Helvetica,sans-serif;background:#fff}
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     
-    <a href="home.html"><b style="font-size: medium;">Home</b></a> &gt; <b style="color: #8d8888;">Collections
+    <a href="home.html"><b style="font-size: medium;">Home</b></a> &gt; <b style="color: #8d8888;">Collection
   </div>
 
   <!-- Title -->
-  <div style="text-align: center; margin-top: 0px; color: #185282;" class="page-title">Collections</div>
+  <div style="text-align: center; margin-top: 0px; color: #185282;" class="page-title">Collection</div>
 
+  <!-- Controls -->
+  <div class="controls">
+    <div class="view-icons">
+      <!-- List view icon -->
+      <button id="oneCol" title="List View">
+        <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+          <rect y="1" width="24" height="2" fill="#666" />
+          <rect y="7" width="24" height="2" fill="#666" />
+          <rect y="13" width="24" height="2" fill="#666" />
+        </svg>
+      </button>
 
-  <div style="       font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #222;">
-    <div style="padding: 30px 60px;
-            max-width: 1200px;" class="page-wrapper">
-       
-
-        <div style="    display: flex;
-            gap: 30px; /* Reduced gap to fit on one line */
-            align-items: flex-start;" class="product-grid">
-            
-            <div style="flex: 1;
-            text-align: center;
-            max-width: 400px; /* Limits width to keep items side-by-side */" class="product-item">
-                <a style="    display: block;
-            margin-bottom: 25px;
-            text-decoration: none;" href="collection.html" class="image-link">
-                    <img style=" height: 280px; /* Slightly smaller to ensure fit */
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;" src="https://res.cloudinary.com/die8hxris/image/upload/v1766641370/c2p3s4dg1ynae5au0nou.jpg" alt="Adult Diapers">
-                </a>
-
-                <div style="font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin: 5px 0;" class="name-label">Adult Diapers</div>
-                <div style=" font-size: 14px;
-            color: #555353;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            letter-spacing: 1px;" class="count-label">8 Products</div>
-
-                <a style="  text-decoration: none;
-            display: block;" href="YOUR_LINK_1" class="button-link">
-                    <div style=" border: 2px solid #000;
-            padding: 14px 0;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.2s;" class="shop-now-box">Shop Now</div>
-                </a>
-            </div>
-
-            <div style="flex: 1;
-            text-align: center;
-            max-width: 400px; /* Limits width to keep items side-by-side */" class="product-item">
-                <a style="    display: block;
-            margin-bottom: 25px;
-            text-decoration: none;" href="collection.html" class="image-link">
-                    <img style=" height: 280px; /* Slightly smaller to ensure fit */
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;" src="https://res.cloudinary.com/die8hxris/image/upload/v1766641343/ckqqduonf8ym7c7zjf2d.jpg" alt="After Shave">
-                </a>
-
-                <div style="font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin: 5px 0;" class="name-label">After Shave</div>
-                <div style=" font-size: 14px;
-            color: #555353;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            letter-spacing: 1px;" class="count-label">6 Products</div>
-
-                <a style="  text-decoration: none;
-            display: block;" href="YOUR_LINK_2" class="button-link">
-                    <div style=" border: 2px solid #000;
-            padding: 14px 0;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.2s;" class="shop-now-box">Shop Now</div>
-                </a>
-            </div>
-
-        </div>
+      <!-- Grid view icon -->
+      <button id="twoCol" class="active" title="Grid View">
+        <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="1" width="8" height="14" fill="#666" />
+          <rect x="14" y="1" width="8" height="14" fill="#666" />
+        </svg>
+      </button>
     </div>
+
+   
+<select id="sort">
+  <option value="default" selected>Default</option>
+  <option value="az">Alphabet A–Z</option>
+  <option value="za">Alphabet Z–A</option>
+  <option value="priceLow">Price Low → High</option>
+  <option value="priceHigh">Price High → Low</option>
+</select>
+
+
   </div>
 
+  <!-- Products -->
+  <div class="products" id="products">
+  <div class="product"
+     data-id="2000"
+     data-name="basic Foods"
+     data-price="2000">
+
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1765982579/evjtsvqkvldgvvmd3ysp.jpg">
+
+  <h3 style="color:#111">basic Foods</h3>
+  <p style="color: #185282;">23 products available</p>
+<br>
+  <a style=" border: 2px solid #000;
+            padding: 14px 200px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.2s;" href="basicfood.html"
+   
+    >
+     Shop now
+  </a>
+</div>
 
 
+  <div class="product"
+     data-id="2001"
+     data-name="Packed Foods"
+     data-price="2001">
 
+  <img src="https://res.cloudinary.com/die8hxris/image/upload/v1765994814/nyrmtfsropad9nfdzcoj.jpg">
+
+  <h3 style="color:#111">Packed Foods</h3>
+  <p style="color: #185282;">12 products available</p>
+<br>
+  <a style=" border: 2px solid #000;
+            padding: 14px 200px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.2s;" href="packedfood.html"
+   
+    >
+     Shop now
+  </a>
+</div>
+ 
+
+</div>
   <div class="no-more-product">
   NO MORE PRODUCT
 </div>
