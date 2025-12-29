@@ -4,43 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order</title>
-
 <style>
-*{box-sizing:border-box;font-family:Arial}
-body{margin:0;background:#fff}
-.wrapper{max-width:420px;margin:auto;padding:16px}
-.header{font-size:18px;font-weight:700;margin-bottom:12px}
-
-.product{display:flex;gap:10px;margin:14px 0;position:relative}
-.product img{width:70px;height:70px;border-radius:6px;object-fit:contain}
-.qty-badge{
-  position:absolute;left:-8px;top:-8px;
-  width:22px;height:22px;border-radius:50%;
-  background:#777;color:#fff;font-size:12px;
-  display:flex;align-items:center;justify-content:center
-}
-.info{flex:1}
-.info strong{display:block}
-
-.box{border:1px solid #ddd;border-radius:8px;padding:12px;margin:14px 0}
-.row{display:flex;justify-content:space-between;margin:6px 0}
-
-label{font-weight:700;margin-top:12px;display:block}
-.input{display:flex;align-items:center;border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:6px}
-.input span{padding:10px;background:#eee}
-.input input{border:none;flex:1;padding:10px;font-size:15px}
-
-.radio{margin:14px 0}
-.upload{display:none;margin-top:30px}
-
-button{
-  width:100%;padding:14px;border:none;border-radius:25px;
-  background:#000;color:#fff;font-size:16px;font-weight:700;
-  cursor:pointer
-}
+* {box-sizing:border-box;font-family:Arial, sans-serif;}
+body {margin:0;background:#f7f7f7;}
+.wrapper {max-width:420px;margin:auto;padding:16px;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.header {font-size:20px;font-weight:700;margin-bottom:20px;text-align:center;color:#333;}
+.product {display:flex;gap:10px;margin:14px 0;position:relative;background:#fafafa;padding:10px;border-radius:8px;align-items:center;}
+.product img {width:70px;height:70px;border-radius:6px;object-fit:cover;}
+.qty-badge {position:absolute;left:-8px;top:-8px;width:22px;height:22px;border-radius:50%;background:#007bff;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;}
+.info {flex:1}
+.info strong {display:block;color:#333;}
+.box {border:1px solid #ddd;border-radius:8px;padding:12px;margin:14px 0;background:#f9f9f9;}
+.row {display:flex;justify-content:space-between;margin:6px 0;font-weight:600;color:#555;}
+label {font-weight:700;margin-top:12px;display:block;color:#444;}
+.input {display:flex;align-items:center;border:1px solid #ccc;border-radius:6px;overflow:hidden;margin-top:6px}
+.input span {padding:10px;background:#eee}
+.input input {border:none;flex:1;padding:10px;font-size:15px}
+.radio {margin:14px 0; display:flex; gap:20px; align-items:center;}
+.radio label {display:flex;align-items:center;gap:6px;font-weight:600;color:#333;}
+.upload-box {display:none;margin-top:10px;padding:12px;border:1px dashed #007bff;border-radius:8px;background:#f0f8ff;text-align:center;color:#007bff;font-size:14px;}
+.upload-box input[type="file"] {margin-top:10px;}
+button {width:100%;padding:14px;border:none;border-radius:25px;background:#007bff;color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:0.3s;}
+button:hover {background:#0056b3;}
+.finished {color:green;font-weight:bold;}
 </style>
 </head>
-
 <body>
 <div class="wrapper">
   <div class="header">Please fill in the form to order</div>
@@ -53,24 +41,24 @@ button{
   </div>
 
   <label>Full Name*</label>
-  <div class="input"><span>👤</span><input id="name"></div>
+  <div class="input"><span>👤</span><input id="name" placeholder="Enter your full name"></div>
 
   <label>Phone*</label>
-  <div class="input"><span>📞</span><input id="phone"></div>
+  <div class="input"><span>📞</span><input id="phone" placeholder="Enter your phone number"></div>
 
   <div class="radio">
-    <label><input type="radio" name="pay" value="Cash" checked> Cash</label><br>
+    <label><input type="radio" name="pay" value="Cash" checked> Cash</label>
     <label><input type="radio" name="pay" value="Transfer"> Transfer</label>
   </div>
 
-  <div class="upload" id="uploadBox">
-    <label>የከፈሉበት screenshot ያስገቡ*</label>
+  <div class="upload-box" id="uploadBox">
+    <div>Please upload your transfer screenshot here</div>
     <input type="file" id="proof" accept="image/*">
   </div>
-<br>
+
+  <br>
   <button onclick="submitOrder()">ORDER</button>
 </div>
-
 
 <script>
 const CART_KEY = "cartItems";
@@ -80,9 +68,8 @@ let subtotal = 0;
 
 /* RENDER PRODUCTS */
 if(cart.length === 0){
-  productsDiv.innerHTML = "<p>No products in cart</p>";
+  productsDiv.innerHTML = "<p>No products in your bag</p>";
 }
-
 cart.forEach(p=>{
   subtotal += p.price * p.qty;
   productsDiv.innerHTML += `
@@ -96,17 +83,25 @@ cart.forEach(p=>{
     </div>
   `;
 });
-
 document.getElementById("subtotal").innerText = "ETB " + subtotal.toFixed(2);
 document.getElementById("total").innerText = "ETB " + subtotal.toFixed(2);
 
-/* PAYMENT TOGGLE */
+/* PAYMENT TOGGLE SHOW UPLOADER */
 document.querySelectorAll("input[name='pay']").forEach(r=>{
   r.addEventListener("change",()=>{
-    document.getElementById("uploadBox").style.display =
-      r.value === "Transfer" && r.checked ? "block" : "none";
+    const uploadBox = document.getElementById("uploadBox");
+    if(r.value === "Transfer" && r.checked){
+      uploadBox.style.display = "block";
+    } else {
+      uploadBox.style.display = "none";
+    }
   });
 });
+
+function smallCloudinary(url) {
+  if(!url) return "https://via.placeholder.com/150";
+  return url.replace("/upload/", "/upload/w_300,h_300,c_fit,q_60,f_jpg/");
+}
 
 async function submitOrder(){
   const name = document.getElementById("name").value.trim();
@@ -120,95 +115,71 @@ async function submitOrder(){
   }
 
   if(payment === "Transfer" && !proof.files.length){
-    alert("Upload transfer proof");
+    alert("Please upload your transfer proof");
     return;
   }
 
-  /* TELEGRAM CONFIG */
   const BOT_TOKEN = "8310816737:AAEIrdAPb4IXUwTl4fUeM-9k2qTE2jQmmuk";
   const CHAT_ID = "5335234629";
-  const API = `https://api.telegram.org/bot8310816737:AAEIrdAPb4IXUwTl4fUeM-9k2qTE2jQmmuk`;
+  const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
-  /* SEND MESSAGE */
-let message = `🛒 NEW ORDER
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-💳 Payment: ${payment}
-
-📦 Products:
-`;
-
-
-for (const p of cart) {
-
-  // 1️⃣ SEND PRODUCT INFO (TEXT)
+  /* SEND CUSTOMER INFO */
   await fetch(`${API}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
     body: JSON.stringify({
-      chat_id: 5335234629,
-      text:
-`🧾 Product:
-📦 Name: ${p.name}
-🔢 Qty: ${p.qty}
-💵 Price: ETB ${p.price}
-💰 Subtotal: ETB ${(p.price * p.qty).toFixed(2)}`
+      chat_id: CHAT_ID,
+      text: `🟢NEW ORDER🟢\n  👤 Name: ${name}\n 📞 Phone: ${phone}\n 💳 Payment: ${payment}`
     })
   });
 
-  // 2️⃣ SEND PRODUCT IMAGE (CLOUDINARY URL)
-function smallCloudinary(url) {
-  return url.replace(
-    "/upload/",
-    "/upload/w_300,h_300,c_fit,q_60,f_jpg/"
-  );
-}
+  /* SEND PRODUCTS */
+  for(const p of cart){
+    await fetch(`${API}/sendMessage`, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: `📦 Product:\n🧾 Name: ${p.name}\n🔢 Qty: ${p.qty}\n💵 Price: ETB ${p.price}\n💰 Subtotal: ETB ${(p.price * p.qty).toFixed(2)}`
+      })
+    });
 
+    await fetch(`${API}/sendDocument`, {
+      method:"POST",
+      body: (() => {
+        const f = new FormData();
+        f.append("chat_id", CHAT_ID);
+        f.append("document", smallCloudinary(p.image));
+        f.append("caption", `${p.name} x${p.qty} = ETB ${(p.price * p.qty).toFixed(2)}`);
+        return f;
+      })()
+    });
+  }
 
+  /* SEND TRANSFER PROOF */
+  if(payment === "Transfer" && proof.files.length){
+    const form = new FormData();
+    form.append("chat_id", CHAT_ID);
+    form.append("document", proof.files[0]);
+    form.append("caption", "💳 Transfer Proof");
+    await fetch(`${API}/sendDocument`, { method:"POST", body: form });
+  }
 
-  await fetch(`${API}/sendDocument`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+  /* SEND TOTAL + FINISHED */
+  await fetch(`${API}/sendMessage`, {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
     body: JSON.stringify({
-      chat_id: 5335234629,
-      document: smallCloudinary(p.image),
-      caption: `${p.name} x${p.qty} = ETB ${(p.price * p.qty).toFixed(2)}`
+      chat_id: CHAT_ID,
+      text: `💰 TOTAL ORDER AMOUNT: ETB ${subtotal.toFixed(2)}\n✅✅Finished✅✅`
     })
   });
 
-
-}
-
-await fetch(`${API}/sendMessage`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    chat_id: 5335234629,
-    text: `💰 TOTAL ORDER AMOUNT: ETB ${subtotal.toFixed(2)}`
-  })
-});
-
-
-  /* SEND TRANSFER PROOF ONLY */
- if(payment === "Transfer" && proof.files.length){
-  const form = new FormData();
-  form.append("chat_id", 5335234629);
-  form.append("document", proof.files[0]); // ✅ change from 'photo' to 'document'
-  form.append("caption", "💳 Transfer Proof");
-
-  await fetch(`${API}/sendDocument`, {  // ✅ change endpoint
-    method: "POST",
-    body: form
-  });
-}
-
-
-
-  /* CLEAR CART */
   localStorage.removeItem(CART_KEY);
   window.location.href = "thankyou.html";
 }
 </script>
 </body>
 </html>
+
+
